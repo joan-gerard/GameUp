@@ -6,7 +6,7 @@ const checkAuth = require("../../utils/check-auth");
 module.exports = {
   Mutation: {
     async createComment(_, { postId, body }, context) {
-      const { username } = checkAuth(context);
+      const user = checkAuth(context);
 
       if (body.trim() === "") {
         throw new UserInputError("Empty comment", {
@@ -21,7 +21,7 @@ module.exports = {
       if (post) {
         post.comments.unshift({
           body,
-          username,
+          username: user.username,
           createdAt: new Date().toISOString(),
         });
         await post.save();

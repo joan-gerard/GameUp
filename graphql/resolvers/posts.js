@@ -49,13 +49,34 @@ module.exports = {
         const post = await Post.findById(postId);
         if (user.username === post.username) {
           await post.delete();
-          return 'Post deleted successfully!'
+          return "Post deleted successfully!";
         } else {
           throw new AuthenticationError("Action not allowed");
         }
       } catch (err) {
         throw new Error(err);
       }
+    },
+    async likePost(_, { postId }, context) {
+      const user = checkAuth(context);
+      const post = await Post.findById(postId);
+
+      if (post) {
+        if (post.likes.find((like) => like.username === user.username)) {
+          // already liked, so remove like
+          post.likes = post.likes.filter(
+            (like) => like.username !== user.username
+          );
+        } else {
+          // add the like
+          post.likes.unshift({
+            username: user.username,
+            createdAt: new Date().toISOString(),
+          });
+        }
+        await post.save();
+        return post;
+      } else throw new UserInputError("Post not found");
     },
   },
 };
