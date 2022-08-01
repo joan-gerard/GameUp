@@ -1,7 +1,13 @@
 import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "./App.css";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import NotFound from "./pages/NotFound";
+import NavBar from "./components/NavBar";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -25,8 +31,16 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
-        <h1>Hi gamers!</h1>
+      <div className="app-container">
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
       </div>
     </ApolloProvider>
   );

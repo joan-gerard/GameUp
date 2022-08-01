@@ -1,0 +1,3 @@
+type PostCardProps = {
+    post: any
+}

@@ -36,3 +36,73 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+  padding: 35px;
+}
+
+.postCard {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px 250px;
+  border-radius: 8px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.jc-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.m0 {
+  margin: 0;
+}
+
+.p2 {
+  padding: 2px;
+}
+
+img {
+  height: 50px;
+  border-radius: 25%;
+}
+
+.bg-primary {
+  background-color: azure;
+}
+
+.action-container {
+  display: flex;
+}
+
+.action-container p {
+  margin: 0
+}
+
+.action-container div:first-child {
+  margin-right: 15px;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
