@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { FaPlusSquare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+import { AuthContext } from "../context/auth";
 import { useForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
 
 const Register: React.FC<RegisterProps> = () => {
+  const context = useContext(AuthContext);
+  console.log("context", context);
+
   const [errors, setErrors] = useState<any>({});
   const navigate = useNavigate();
 
@@ -20,6 +24,8 @@ const Register: React.FC<RegisterProps> = () => {
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
     update(proxy, result) {
       console.log(result);
+      context.login(result.data.register);
+
       navigate("/");
     },
     onError(err) {

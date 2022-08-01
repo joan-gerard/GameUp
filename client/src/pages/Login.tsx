@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { FaPlusSquare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+import { AuthContext } from "../context/auth";
 import { useForm } from "../utils/hooks";
 import { LOGIN_USER, REGISTER_USER } from "../graphql/mutations";
 
 const Login = () => {
+  const context = useContext(AuthContext);
+  console.log("context", context);
   const [errors, setErrors] = useState<any>({});
   const navigate = useNavigate();
 
@@ -18,7 +21,7 @@ const Login = () => {
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(proxy, result) {
       console.log(result);
-
+      context.login(result.data.login);
       navigate("/");
     },
     onError(err) {
