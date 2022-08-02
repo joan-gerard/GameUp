@@ -10,7 +10,9 @@ import { LOGIN_USER, REGISTER_USER } from "../graphql/mutations";
 const Login = () => {
   const context = useContext(AuthContext);
   console.log("context", context);
+
   const [errors, setErrors] = useState<any>({});
+
   const navigate = useNavigate();
 
   const { onChange, onSubmit, values } = useForm(loginUserCb, {
@@ -19,7 +21,7 @@ const Login = () => {
   });
 
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-    update(proxy, result) {
+    update(_, result) {
       console.log(result);
       context.login(result.data.login);
       navigate("/");
