@@ -1,6 +1,11 @@
-import React from "react";
+import { useEffect } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 
 import "./App.css";
 import Login from "./pages/Login";
@@ -8,7 +13,8 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
-import { AuthProvider } from "./context/auth";
+import { AuthProvider, useAuthContext } from "./context/auth";
+import AuthRoute from "./utils/AuthRoute";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -29,20 +35,14 @@ const client = new ApolloClient({
   cache,
 });
 
+
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
         <div className="app-container">
-          <Router>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Router>
+          <AuthRoute />
         </div>
       </AuthProvider>
     </ApolloProvider>

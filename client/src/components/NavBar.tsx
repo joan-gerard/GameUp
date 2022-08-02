@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,7 +6,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import { AuthContext } from "../context/auth";
+import { useAuthContext } from "../context/auth";
 import { Link } from "react-router-dom";
 import { capitalizeFirstLetter } from "../utils/helpers";
 
@@ -24,7 +23,9 @@ type User = {
 
 
 export default function NavBar() {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useAuthContext();
+
+  
 
   console.log("NavBar context", user?.username);
 

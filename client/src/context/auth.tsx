@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import jwtDecode from "jwt-decode";
 
 type JWT = {
@@ -79,4 +79,6 @@ function AuthProvider(props: any) {
   );
 }
 
-export { AuthContext, AuthProvider };
+const useAuthContext = () => useContext(AuthContext)
+
+export { useAuthContext, AuthProvider };

@@ -3,12 +3,12 @@ import { useMutation } from "@apollo/client";
 import { FaPlusSquare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import { AuthContext } from "../context/auth";
+import { useAuthContext } from "../context/auth";
 import { useForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
 
 const Register: React.FC<RegisterProps> = () => {
-  const context = useContext(AuthContext);
+  const context = useAuthContext();
   console.log("context", context);
 
   const [errors, setErrors] = useState<any>({});

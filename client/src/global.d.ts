@@ -4,3 +4,8 @@ type PostCardProps = {
 
 type RegisterProps = {
 };
+
+// type AuthRouteProps = {
+//   element: any;
+//   path: string
+// }
