@@ -2,10 +2,10 @@ type PostCardProps = {
   post: any;
 };
 
+type RedirectProps = {
+  to: string;
+};
+
 type RegisterProps = {
 };
 
-// type AuthRouteProps = {
-//   element: any;
-//   path: string
-// }

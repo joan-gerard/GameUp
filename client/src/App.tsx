@@ -1,19 +1,7 @@
-import { useEffect } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
 
 import "./App.css";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
-import NavBar from "./components/NavBar";
-import { AuthProvider, useAuthContext } from "./context/auth";
+import { AuthProvider } from "./context/auth";
 import AuthRoute from "./utils/AuthRoute";
 
 const cache = new InMemoryCache({

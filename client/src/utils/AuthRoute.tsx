@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAuthContext } from "../context/auth";
 import {
   BrowserRouter as Router,
@@ -12,8 +12,7 @@ import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 
-// @ts-ignore
-function Redirect({ to }) {
+function Redirect({ to }: RedirectProps) {
   let navigate = useNavigate();
   useEffect(() => {
     navigate(to);
@@ -24,15 +23,6 @@ function Redirect({ to }) {
 const AuthRoute = () => {
   const { user } = useAuthContext();
 
-  console.log("AuthRoute user", user);
-  //   if (user) {
-  //     return (
-  //         <Route>
-  //             <Redirect to="/" />
-  //         </Route>
-  //     );
-  //   }
-  //   return <Route {...rest} element={<Element />} />;
   return (
     <Router>
       <NavBar />
@@ -43,7 +33,6 @@ const AuthRoute = () => {
           path="/register"
           element={user ? <Redirect to="/" /> : <Register />}
         />
-        {/* <Route path="/register" user ? element={<Home />} : element={<Register />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
