@@ -37,7 +37,7 @@ export default function NavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <p>{capitalizeFirstLetter(user?.username)}</p>
+          <p>Hi, {capitalizeFirstLetter(user?.username)}</p>
           <Link to="login">
             <Button color="inherit" onClick={logout}>
               Logout
