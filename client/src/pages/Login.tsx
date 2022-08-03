@@ -4,7 +4,7 @@ import { FaPlusSquare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../context/auth";
-import { useForm } from "../utils/hooks";
+import { useUserForm } from "../utils/hooks";
 import { LOGIN_USER, REGISTER_USER } from "../graphql/mutations";
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const { onChange, onSubmit, values } = useForm(loginUserCb, {
+  const { onChange, onSubmit, values } = useUserForm(loginUserCb, {
     username: "",
     password: "",
   });

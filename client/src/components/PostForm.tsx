@@ -4,18 +4,18 @@ import React, { useState } from "react";
 import { useAuthContext } from "../context/auth";
 import { CREATE_POST } from "../graphql/mutations";
 import { GET_POSTS } from "../graphql/queries";
-import { useForm } from "../utils/hooks";
+import { usePostForm } from "../utils/hooks";
 
 const PostForm = () => {
   const { user } = useAuthContext();
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<any>("");
 
-  const { values, onChange, onSubmit } = useForm(createPostCb, {
+  const { values, onChange, onSubmit } = usePostForm(createPostCb, setErrors, {
     body: "",
   });
-  const { loading, data } = useQuery(GET_POSTS);
+  // const { loading, data } = useQuery(GET_POSTS);
 
-  const [createPost] = useMutation(CREATE_POST, {
+  const [createPost, { loading, error }] = useMutation(CREATE_POST, {
     variables: values,
 
     // update(proxy, result) {
@@ -40,7 +40,9 @@ const PostForm = () => {
     //     data: { posts: [...(posts || []), createPost] },
     //   });
     // },
-
+    onError(err) {
+      setErrors(err.graphQLErrors[0].message);
+    },
     refetchQueries: [{ query: GET_POSTS }], // not recommended to avoid too many queries
   });
 
@@ -48,21 +50,32 @@ const PostForm = () => {
     createPost();
   }
 
+  if (loading) return <p>Posting...</p>;
+
   return (
     <>
       {user && (
-        <form onSubmit={onSubmit}>
-          <label>
-            New Post:
-            <input
-              type="text"
-              name="body"
-              value={values.body}
-              onChange={onChange}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
+        <>
+          <form onSubmit={onSubmit}>
+            <label>
+              New Post:
+              <input
+                type="text"
+                name="body"
+                value={values.body}
+                onChange={onChange}
+              />
+            </label>
+            <button type="submit">Submit</button>
+          </form>
+          {errors && (
+            <div>
+              <ul>
+                <li>{errors}</li>
+              </ul>
+            </div>
+          )}
+        </>
       )}
     </>
   );
