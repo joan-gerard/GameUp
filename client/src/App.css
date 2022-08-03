@@ -113,3 +113,27 @@ img {
 .button-liked {
   background-color: aqua;
 }
+
+.post-comment {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  padding: 2px;
+  align-items: center;
+}
+
+.post-comment__info {
+  /* display: flex;
+  flex-direction: row;
+  align-items: center; */
+}
+.post-comment__info p {
+  margin: 0 8px;
+
+}
+
+.comment-avatar {
+  height: 25px;
+}

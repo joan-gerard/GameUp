@@ -12,7 +12,7 @@ import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import PostPage from "../components/PostPage";
+import PostPage from "../pages/PostPage";
 
 function Redirect({ to }: RedirectProps) {
   let navigate = useNavigate();

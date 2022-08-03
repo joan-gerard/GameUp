@@ -1,3 +1,10 @@
+type Comment = {
+  id: string;
+  body: string;
+  username: string;
+  createdAt: string;
+}
+
 type Post = {
   body: string;
   id: string;
@@ -15,6 +22,8 @@ type Post = {
     [username: string];
   };
 };
+
+
 
 type PostCardProps = {
   post: Post;

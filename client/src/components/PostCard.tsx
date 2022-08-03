@@ -24,6 +24,8 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       ? female5
       : avatar;
 
+      console.log('postCard', post)
+
   return (
     <div className="postCard">
       <div className="row jc-between bg-primary p2">
@@ -47,6 +49,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         </div>
         <DeletePostButton post={post} />
       </div>
+
     </div>
   );
 };
