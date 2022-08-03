@@ -1,13 +1,3 @@
-type PostCardProps = {
-  post: any;
-};
-
-type RedirectProps = {
-  to: string;
-};
-
-type RegisterProps = {};
-
 type Post = {
   body: string;
   id: string;
@@ -26,9 +16,21 @@ type Post = {
   };
 };
 
+type PostCardProps = {
+  post: Post;
+};
+
+type RedirectProps = {
+  to: string;
+};
+
 type AllPosts = {
   data: [Post];
-  getPosts: null | [Post]
+  getPosts: null | [Post];
+};
+
+type CommentButtonProps = {
+  post: Post;
 };
 
 // @ts-ignore

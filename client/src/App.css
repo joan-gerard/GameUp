@@ -68,6 +68,9 @@
 .mr10 {
   margin-right: 10px;
 }
+.ml10 {
+  margin-left: 10px;
+}
 
 .p0 {
   padding: 0;
@@ -106,3 +109,4 @@ img {
   display: flex;
   align-items: center;
 }
+

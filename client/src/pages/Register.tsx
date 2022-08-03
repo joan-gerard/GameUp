@@ -7,7 +7,7 @@ import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
 
-const Register: React.FC<RegisterProps> = () => {
+const Register = () => {
   const context = useAuthContext();
   console.log("context", context);
 

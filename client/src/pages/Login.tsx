@@ -9,7 +9,6 @@ import { LOGIN_USER, REGISTER_USER } from "../graphql/mutations";
 
 const Login = () => {
   const context = useAuthContext();
-  console.log("context", context);
 
   const [errors, setErrors] = useState<any>({});
 
