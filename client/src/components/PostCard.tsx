@@ -24,7 +24,6 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       ? female5
       : avatar;
 
-      console.log('postCard', post)
 
   return (
     <div className="postCard">

@@ -26,9 +26,7 @@ const PostPage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Something Went Wrong</p>;
-  if (data) {
-    console.log(data.getPost.comments);
-  }
+  
   return (
     <div>
       {!loading && !error && (

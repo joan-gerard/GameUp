@@ -124,11 +124,6 @@ img {
   align-items: center;
 }
 
-.post-comment__info {
-  /* display: flex;
-  flex-direction: row;
-  align-items: center; */
-}
 .post-comment__info p {
   margin: 0 8px;
 
