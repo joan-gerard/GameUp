@@ -13,6 +13,7 @@ import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import PostPage from "../pages/PostPage";
+import GameDashboard from "../admin/GameDashboard";
 
 function Redirect({ to }: RedirectProps) {
   let navigate = useNavigate();
@@ -36,6 +37,9 @@ const AuthRoute = () => {
           element={user ? <Redirect to="/" /> : <Register />}
         />
         <Route path="/post/:id" element={<PostPage />} />
+        {user?.email === "admin@mail.com" && (
+          <Route path="/gameDB" element={<GameDashboard />} />
+        )}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

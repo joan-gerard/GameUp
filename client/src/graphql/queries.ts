@@ -43,6 +43,25 @@ export const GET_POST = gql`
   }
 `;
 
+export const GET_PLATFORMS = gql`
+  query getPlatforms {
+    getPlatforms {
+      id
+      name
+    }
+  }
+`;
+export const GET_GAMES = gql`
+  query getGames {
+    getGames {
+      id
+      name
+      releaseDate
+      # platform
+    }
+  }
+`;
+
 // query getPosts {
 //     id
 //     body

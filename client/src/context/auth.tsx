@@ -3,7 +3,8 @@ import jwtDecode from "jwt-decode";
 
 type JWT = {
   exp: number;
-  username: string
+  username: string,
+  email: string
   // whatever else is in the JWT.
 }
 

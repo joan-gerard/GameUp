@@ -29,6 +29,19 @@ module.exports = gql`
     username: String!
     createdAt: String!
   }
+
+  type Platform {
+    id: ID!
+    name: String!
+  }
+
+  type Game {
+    id: ID!
+    name: String!
+    releaseDate: String!
+    platform: Platform
+  }
+
   input RegisterInput {
     username: String!
     password: String!
@@ -40,6 +53,8 @@ module.exports = gql`
     getPosts: [Post]
     getPost(postId: ID!): Post
     getUsers: [User]
+    getPlatforms: [Platform]
+    getGames: [Game]
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
@@ -49,5 +64,7 @@ module.exports = gql`
     createComment(postId: String!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
+    createPlatform(name: String!): Platform!
+    createGame(name: String!, releaseDate: String, platform: String): Game!
   }
 `;
