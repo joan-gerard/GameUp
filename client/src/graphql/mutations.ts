@@ -59,3 +59,23 @@ export const CREATE_POST = gql`
     }
   }
 `;
+export const DELETE_POST = gql`
+  mutation deletePost($id: ID!) {
+    deletePost(id: $id) {
+      id
+    }
+  }
+`;
+
+export const LIKE_POST = gql`
+  mutation likePost($postId: ID!) {
+    likePost(postId: $postId) {
+      id
+      likes {
+        id
+        username
+      }
+      likeCount
+    }
+  }
+`;

@@ -9,17 +9,10 @@ import female5 from "./assets/female5.png";
 import male3 from "./assets/male3.png";
 import male6 from "./assets/male6.png";
 import avatar from "./assets/avatar.png";
+import DeletePostButton from "./DeletePostButton";
+import LikeButton from "./LikeButton";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
-  const { user } = useAuthContext();
-
-  const likePost = () => {
-    console.log("post liked");
-  };
-
-  console.log("postcard", user?.username);
-  console.log("postcard post", post.username);
-
   const profileAvatar =
     post.username === "jose"
       ? male3
@@ -48,17 +41,11 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <div className="row align-center ">
           <div className="row align-center">
             <p className="">{post.likeCount}</p>
-            <button onClick={likePost}>
-              <FaThumbsUp />
-            </button>
+            <LikeButton post={post} />
           </div>
           <CommentButton post={post} />
         </div>
-        {user?.username === post.username ? (
-          <button className="ml10" onClick={() => {}}>
-            <FaTrash />
-          </button>
-        ) : null}
+        <DeletePostButton post={post} />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ type Post = {
     username: string;
   };
   likes: {
-    username: string;
+    [username: string];
   };
 };
 
@@ -30,6 +30,12 @@ type AllPosts = {
 };
 
 type CommentButtonProps = {
+  post: Post;
+};
+type DeletePostButtonProps = {
+  post: Post;
+};
+type LikeButtonProps = {
   post: Post;
 };
 
