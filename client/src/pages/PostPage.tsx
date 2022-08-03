@@ -11,6 +11,7 @@ import LikeButton from "../components/LikeButton";
 import PostCard from "../components/PostCard";
 import { GET_POST } from "../graphql/queries";
 import PostComment from "../components/PostComment";
+import AddCommentForm from "../components/AddCommentForm";
 
 type Comment = {
   id: string;
@@ -58,6 +59,7 @@ const PostPage = () => {
             </div>
             <hr />
           </div>
+          <AddCommentForm id={id} />
           <>
             {data.getPost.comments &&
               data.getPost.comments.map((comment: Comment, i: number) => (

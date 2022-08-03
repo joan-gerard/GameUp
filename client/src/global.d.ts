@@ -55,4 +55,8 @@ type PostCommentProps = {
   id: string | undefined;
 };
 
+type AddCommentFormProps = {
+  id: string | undefined;
+};
+
 // @ts-ignore
