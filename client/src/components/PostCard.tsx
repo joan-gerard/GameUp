@@ -24,13 +24,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       ? female5
       : avatar;
 
-
   return (
     <div className="postCard">
       <div className="row jc-between bg-primary p2">
         <div className="column jc-between">
           <p className="m0">{post.username}</p>
-          <p className="m0">{moment(post.createdAt).fromNow(false)}</p>
+          <p className="m0 moment-date">
+            {moment(post.createdAt).fromNow(false)}
+          </p>
         </div>
 
         <img src={profileAvatar} />
@@ -48,7 +49,6 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         </div>
         <DeletePostButton post={post} />
       </div>
-
     </div>
   );
 };

@@ -10,6 +10,7 @@ import DeletePostButton from "../components/DeletePostButton";
 import LikeButton from "../components/LikeButton";
 import PostCard from "../components/PostCard";
 import { GET_POST } from "../graphql/queries";
+import PostComment from "../components/PostComment";
 
 type Comment = {
   id: string;
@@ -26,49 +27,44 @@ const PostPage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Something Went Wrong</p>;
-  
+
   return (
     <div>
       {!loading && !error && (
-        <div className="postCard">
-          <div className="row jc-between bg-primary p2">
-            <div className="column jc-between">
-              <p className="m0">{data.getPost.username}</p>
-              <p className="m0">
-                {moment(data.getPost.createdAt).fromNow(false)}
-              </p>
-            </div>
-
-            <img src={avatar} />
-          </div>
-          <p>{data.getPost.body}</p>
-          <hr />
-
-          <div className="action-container jc-between">
-            <div className="row align-center ">
-              <div className="row align-center">
-                <p className="">{data.getPost.likeCount}</p>
-                <LikeButton post={data.getPost} />
+        <>
+          <div className="postCard">
+            <div className="row jc-between bg-primary p2">
+              <div className="column jc-between">
+                <p className="m0">{data.getPost.username}</p>
+                <p className="m0 moment-date">
+                  {moment(data.getPost.createdAt).fromNow(false)}
+                </p>
               </div>
-              <CommentButton post={data.getPost} />
-            </div>
-            <DeletePostButton post={data.getPost} />
-          </div>
-          <hr />
 
-          {data.getPost.comments &&
-            data.getPost.comments.map((comment: Comment, i: number) => (
-              <div className="post-comment">
-                <div className="post-comment__avatar">
-                  <img src={avatar} className="comment-avatar" />
+              <img src={avatar} />
+            </div>
+            <p>{data.getPost.body}</p>
+            <hr />
+
+            <div className="action-container jc-between">
+              <div className="row align-center ">
+                <div className="row align-center">
+                  <p className="">{data.getPost.likeCount}</p>
+                  <LikeButton post={data.getPost} />
                 </div>
-                <div className="post-comment__info">
-                  <p>{comment.username}</p>
-                  <p key={i}>{comment.body}</p>
-                </div>
+                <CommentButton post={data.getPost} />
               </div>
-            ))}
-        </div>
+              <DeletePostButton post={data.getPost} />
+            </div>
+            <hr />
+          </div>
+          <>
+            {data.getPost.comments &&
+              data.getPost.comments.map((comment: Comment, i: number) => (
+                <PostComment key={i} comment={comment} id={id} />
+              ))}
+          </>
+        </>
       )}
     </div>
   );

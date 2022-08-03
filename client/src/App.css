@@ -44,7 +44,7 @@
 .postCard {
   border: 1px solid black;
   padding: 5px;
-  margin: 10px 250px;
+  /* margin: 10px 250px; */
   border-radius: 8px;
 }
 
@@ -114,21 +114,42 @@ img {
   background-color: aqua;
 }
 
-.post-comment {
+.post-comment__container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 1px solid grey;
   border-radius: 8px;
   margin-bottom: 5px;
-  padding: 2px;
+  padding: 5px;
+}
+
+.post-comment__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-comment__user {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
 .post-comment__info p {
-  margin: 0 8px;
+  margin: 0;
 
 }
 
 .comment-avatar {
   height: 25px;
+}
+
+.moment-date {
+  color: grey;
+  font-weight: lighter;
+  font-size: smaller;
+}
+.post-comment__body {
+  /* margin-top: 25px !important; */
 }

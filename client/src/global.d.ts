@@ -3,7 +3,7 @@ type Comment = {
   body: string;
   username: string;
   createdAt: string;
-}
+};
 
 type Post = {
   body: string;
@@ -22,8 +22,6 @@ type Post = {
     [username: string];
   };
 };
-
-
 
 type PostCardProps = {
   post: Post;
@@ -46,6 +44,15 @@ type DeletePostButtonProps = {
 };
 type LikeButtonProps = {
   post: Post;
+};
+type PostCommentProps = {
+  comment: {
+    id: string;
+    body: string;
+    username: string;
+    createdAt: string;
+  };
+  id: string | undefined;
 };
 
 // @ts-ignore
