@@ -15,7 +15,6 @@ const light = "#322651";
 const white = "#FFFFFF";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
-
   const profileAvatar =
     post.username === "jose"
       ? male3
@@ -32,23 +31,29 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       sx={{
         backgroundColor: light,
         margin: "0 15px",
-        marginBottom: '10px',
+        marginBottom: "10px",
         padding: 2,
         borderRadius: "16px",
         color: white,
       }}
     >
-      <div className="post__user-info">
-        <img className="avatar" src={profileAvatar} alt="avatar" />
-        <div className="">
-          <p className="">{post.username}</p>
-          <p className="">{moment(post.createdAt).fromNow(false)}</p>
+      <div className="jc-between">
+        <div className="post__user-info">
+          <img className="avatar" src={profileAvatar} alt="avatar" />
+          <div className="post__username">
+            <p className="">{post.username}</p>
+            <p className="moment-date">
+              {moment(post.createdAt).fromNow(false)}
+            </p>
+          </div>
         </div>
+        <p className="post__game-title">{post.game}</p>
       </div>
-      <p>{post.body}</p>
-      <p>{post.game}</p>
+      <div className="post-body">
+        <p>{post.body}</p>
+      </div>
 
-      <hr />
+      <hr className="hr-thin" />
 
       <div className="post_action-container">
         <div className="post_action-buttons">

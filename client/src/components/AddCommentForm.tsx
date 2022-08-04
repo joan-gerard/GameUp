@@ -1,7 +1,10 @@
 import { useMutation } from "@apollo/client";
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useAuthContext } from "../context/auth";
 import { CREATE_COMMENT } from "../graphql/mutations";
+
+const white = "#FFFFFF";
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
   const { user } = useAuthContext();
@@ -16,7 +19,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
   });
 
   const handleCreateComment = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(comment);
     createComment();
   };
@@ -24,8 +27,8 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
   return (
     <>
       {user && (
-        <form onSubmit={handleCreateComment}>
-          <label>
+        <form className="align-items add-comment__form"  onSubmit={handleCreateComment}>
+          {/* <label>
             Add comment:
             <input
               type="text"
@@ -33,10 +36,29 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
-          </label>
-          <button type="submit" disabled={comment.trim() === ""}>
-            Submit
-          </button>
+          </label> */}
+
+          <TextField
+            sx={{
+              backgroundColor: white,
+              borderRadius: '8px',
+              marginRight: '10px'
+            }}
+            label="Comment"
+            id="outlined-size-small"
+            size="small"
+            type="text"
+            name="comment"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <Button
+            variant="contained"
+            type="submit"
+            // disabled={comment.trim() === ""}
+          >
+            Post comment
+          </Button>
         </form>
       )}
     </>

@@ -86,14 +86,22 @@ html {
 }
 
 .postCard {
-  /* border: 1px solid black;
+  border: 1px solid black;
   padding: 5px;
   border-radius: 8px;
   width: 50%;
   margin: auto;
-  background-color: white; */
+  background-color: white;
 }
 
+.align-items {
+  display: flex;
+  align-items: center;
+}
+
+.comment-container {
+  margin: 10px 0
+}
 /* .app-container {
   padding: 35px;
 } */

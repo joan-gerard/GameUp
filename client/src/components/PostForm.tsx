@@ -131,12 +131,12 @@ const PostForm = () => {
                 Post
               </Button>
             </div>
+            {errors && (
+              <div>
+                <p className="error-msg">* {errors}</p>
+              </div>
+            )}
           </form>
-          {errors && (
-            <div>
-              <p className="error-msg">* {errors}</p>
-            </div>
-          )}
         </div>
       )}
     </>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaThumbsUp } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaThumbsUp } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 import { useAuthContext } from "../context/auth";
 import { LIKE_POST } from "../graphql/mutations";
@@ -26,10 +26,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({ post }) => {
   };
 
   return (
-    <div>
+    <div className="like-actions">
       <p className="">{post.likeCount}</p>
       <div onClick={handleLikePost} className={liked ? "button-liked" : ""}>
-        <FaThumbsUp />
+        {liked ? <FaHeart /> : <FaRegHeart />}
       </div>
     </div>
   );

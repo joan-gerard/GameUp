@@ -7,7 +7,7 @@ const CommentButton: React.FC<CommentButtonProps> = ({ post }) => {
   };
 
   return (
-    <div className="">
+    <div className="comment-actions">
       <p>{post.commentCount}</p>
       <div onClick={commentOnPost}>
         <a href={`/post/${post.id}`}>
