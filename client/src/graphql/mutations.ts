@@ -37,11 +37,12 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost($body: String!) {
-    createPost(body: $body) {
+  mutation createPost($body: String!, $game: String!) {
+    createPost(body: $body, game: $game) {
       id
       body
       username
+      game
       createdAt
       likes {
         id

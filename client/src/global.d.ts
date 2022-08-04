@@ -9,6 +9,7 @@ type Post = {
   body: string;
   id: string;
   username: string;
+  game: string,
   createdAt: string;
   commentCount: number;
   likeCount: number;
@@ -58,5 +59,10 @@ type PostCommentProps = {
 type AddCommentFormProps = {
   id: string | undefined;
 };
+
+type GameListSelectProps = {
+  gameState: string[]
+  setGameState: any
+}
 
 // @ts-ignore

@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/client";
 import { GET_POSTS } from "../graphql/queries";
 import PostCard from "../components/PostCard";
 import PostForm from "../components/PostForm";
+import Users from "../components/Users";
 
 const bg800 = "#880e4f";
 
@@ -20,7 +21,6 @@ const Home = () => {
   if (error) return <p>Something Went Wrong</p>;
 
   const latestPosts = data.getPosts.slice(0, 5);
-  console.log(latestPosts);
 
   return (
     <Container maxWidth={false} sx={{ backgroundColor: primary }}>
@@ -37,6 +37,7 @@ const Home = () => {
               ))}
             </TransitionGroup>
           </div>
+          <Users />
         </div>
       )}
     </Container>

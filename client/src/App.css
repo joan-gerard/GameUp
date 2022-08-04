@@ -4,6 +4,10 @@
   /* background-color: #291f43; */
 }
 
+html {
+  background-color: #18132b;
+}
+
 .App {
   text-align: center;
 }
@@ -61,7 +65,7 @@
   flex-direction: row;
   padding: 25px 0; */
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 25% 55% 20%;
   padding: 25px 0;
 
 }

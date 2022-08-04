@@ -50,7 +50,7 @@ const Login = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                label="Username"
+                label="Username*"
                 variant="outlined"
                 size="small"
                 type="text"
@@ -63,7 +63,7 @@ const Login = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                label="Password"
+                label="Password*"
                 variant="outlined"
                 size="small"
                 type="password"

@@ -53,3 +53,45 @@
   display: flex;
   flex-direction: row;
 }
+
+.user-list {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.user-list__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #291f43;
+  padding: 5px;
+  border-radius: 8px;
+  margin: 15px 0;
+  align-items: center;
+
+}
+
+.user-list__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+}
+.user-list__info img {
+  height: 15px;
+  margin-right: 10px;
+}
+
+.follow-button {
+  background: none;
+  color: #291f43;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 1px;
+  background-color: white;
+}

@@ -1,18 +1,30 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { Button, TextField } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+} from "@mui/material";
 import React, { useState } from "react";
 
 import { useAuthContext } from "../context/auth";
 import { CREATE_POST } from "../graphql/mutations";
 import { GET_POSTS } from "../graphql/queries";
 import { usePostForm } from "../utils/hooks";
+import GameListSelect from "./GameListSelect";
 
 const PostForm = () => {
   const { user } = useAuthContext();
   const [errors, setErrors] = useState<any>("");
+  const [gameState, setGameState] = React.useState([]);
 
   const { values, onChange, onSubmit } = usePostForm(createPostCb, setErrors, {
     body: "",
+    game: "",
   });
   // const { loading, data } = useQuery(GET_POSTS);
 
@@ -65,7 +77,7 @@ const PostForm = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                // label="Write a post"
+                label="Message*"
                 variant="outlined"
                 size="medium"
                 type="text"
@@ -73,15 +85,57 @@ const PostForm = () => {
                 value={values.body}
                 onChange={onChange}
               />
-              {/* <label>
-              New Post:
-              <input
+              {/* <GameListSelect /> */}
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Game"
+                variant="outlined"
+                size="medium"
                 type="text"
-                name="body"
-                value={values.body}
+                name="game"
+                value={values.game}
                 onChange={onChange}
               />
-            </label> */}
+              {/* <FormControl sx={{ marginBottom: 2 }}>
+                <InputLabel id="demo-simple-select-helper-label">
+                  Age
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={age}
+                  label="Age"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl> */}
               <Button variant="contained" color="success" type="submit">
                 Post
               </Button>

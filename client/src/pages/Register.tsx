@@ -59,7 +59,7 @@ const Register = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                label="Username"
+                label="Username*"
                 variant="outlined"
                 size="small"
                 type="text"
@@ -73,7 +73,7 @@ const Register = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                label="Email"
+                label="Email*"
                 variant="outlined"
                 size="small"
                 type="text"
@@ -87,7 +87,7 @@ const Register = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                label="Password"
+                label="Password*"
                 variant="outlined"
                 size="small"
                 type="password"
@@ -101,7 +101,7 @@ const Register = () => {
                   marginBottom: 2,
                 }}
                 id="outlined-basic"
-                label="Username"
+                label="Confirm Password*"
                 variant="outlined"
                 size="small"
                 type="password"

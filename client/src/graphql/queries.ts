@@ -5,6 +5,7 @@ export const GET_POSTS = gql`
     getPosts {
       id
       body
+      game
       createdAt
       username
       likeCount
