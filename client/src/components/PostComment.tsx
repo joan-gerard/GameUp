@@ -32,7 +32,7 @@ const PostComment: React.FC<PostCommentProps> = ({ comment, id }) => {
       <div className="post-comment__container">
         <div className="post-comment__header">
           <div className="post-comment__user">
-            <img src={avatar} className="comment-avatar" />
+            <img src={avatar} className="comment-avatar" alt="avatar" />
             <div className="post-comment__info">
               <p>{comment.username}</p>
               <p className="m0 moment-date">

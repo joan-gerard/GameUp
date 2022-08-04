@@ -1,9 +1,7 @@
-import React, { useCallback } from "react";
+import React from "react";
 import moment from "moment";
 
-import { FaThumbsUp, FaRegCommentDots, FaTrash } from "react-icons/fa";
 import CommentButton from "./CommentButton";
-import { useAuthContext } from "../context/auth";
 import female1 from "./assets/female1.png";
 import female5 from "./assets/female5.png";
 import male3 from "./assets/male3.png";
@@ -11,7 +9,7 @@ import male6 from "./assets/male6.png";
 import avatar from "./assets/avatar.png";
 import DeletePostButton from "./DeletePostButton";
 import LikeButton from "./LikeButton";
-import { Card, Container } from "@mui/material";
+import { Card } from "@mui/material";
 
 const light = "#322651";
 const white = "#FFFFFF";
@@ -42,7 +40,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       }}
     >
       <div className="post__user-info">
-        <img className="avatar" src={profileAvatar} />
+        <img className="avatar" src={profileAvatar} alt="avatar" />
         <div className="">
           <p className="">{post.username}</p>
           <p className="">{moment(post.createdAt).fromNow(false)}</p>

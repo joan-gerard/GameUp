@@ -9,18 +9,16 @@ import PostCard from "../components/PostCard";
 import PostForm from "../components/PostForm";
 import Users from "../components/Users";
 
-const bg800 = "#880e4f";
 
 const primary = "#18132b";
-const white = "#FFFFF";
 
 const Home = () => {
-  const { loading, error, data, client } = useQuery(GET_POSTS);
+  const { loading, error, data } = useQuery(GET_POSTS);
 
   if (loading) return <p>Loading posts...</p>;
   if (error) return <p>Something Went Wrong</p>;
 
-  const latestPosts = data.getPosts.slice(0, 5);
+  // const latestPosts = data.getPosts.slice(0, 5);
 
   return (
     <Container maxWidth={false} sx={{ backgroundColor: primary }}>

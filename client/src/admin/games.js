@@ -8,7 +8,7 @@ import monster_Hunter_World from "../components/assets/monster_Hunter_World.jpeg
 import destiny_2 from "../components/assets/destiny_2.jpeg";
 import apex_legends from "../components/assets/apex_legends.jpeg";
 
-export default {
+const games = {
   diablo,
   elden_ring,
   fall_guys,
@@ -19,3 +19,5 @@ export default {
   destiny_2,
   apex_legends,
 };
+
+export default games;

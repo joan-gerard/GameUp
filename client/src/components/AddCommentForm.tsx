@@ -2,7 +2,6 @@ import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { useAuthContext } from "../context/auth";
 import { CREATE_COMMENT } from "../graphql/mutations";
-import { usePostForm } from "../utils/hooks";
 
 const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
   const { user } = useAuthContext();

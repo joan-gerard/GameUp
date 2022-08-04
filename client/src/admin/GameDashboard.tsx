@@ -43,15 +43,15 @@ const GameDashboard = () => {
         )}
       </div>
       <div className="image-container">
-        <img src={games.diablo} />
-        <img src={games.elden_ring} />
-        <img src={games.fall_guys} />
-        <img src={games.fortnite} />
-        <img src={games.minecraft} />
-        <img src={games.call_of_Duty_Warzone} />
-        <img src={games.monster_Hunter_World} />
-        <img src={games.destiny_2} />
-        <img src={games.apex_legends} />
+        <img alt="game_cover" src={games.diablo} />
+        <img alt="game_cover" src={games.elden_ring} />
+        <img alt="game_cover" src={games.fall_guys} />
+        <img alt="game_cover" src={games.fortnite} />
+        <img alt="game_cover" src={games.minecraft} />
+        <img alt="game_cover" src={games.call_of_Duty_Warzone} />
+        <img alt="game_cover" src={games.monster_Hunter_World} />
+        <img alt="game_cover" src={games.destiny_2} />
+        <img alt="game_cover" src={games.apex_legends} />
       </div>
     </div>
   );

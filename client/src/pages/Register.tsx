@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { FaPlusSquare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../context/auth";

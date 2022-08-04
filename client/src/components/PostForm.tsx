@@ -1,26 +1,17 @@
-import { useMutation, useQuery } from "@apollo/client";
-import {
-  Button,
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  TextField,
-} from "@mui/material";
+import { useMutation } from "@apollo/client";
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 import { useAuthContext } from "../context/auth";
 import { CREATE_POST } from "../graphql/mutations";
 import { GET_POSTS } from "../graphql/queries";
 import { usePostForm } from "../utils/hooks";
-import GameListSelect from "./GameListSelect";
+// import GameListSelect from "./GameListSelect";
 
 const PostForm = () => {
   const { user } = useAuthContext();
   const [errors, setErrors] = useState<any>("");
-  const [gameState, setGameState] = React.useState([]);
+  // const [gameState, setGameState] = React.useState([]);
 
   const { values, onChange, onSubmit } = usePostForm(createPostCb, setErrors, {
     body: "",

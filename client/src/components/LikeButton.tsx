@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { useAuthContext } from "../context/auth";
 import { LIKE_POST } from "../graphql/mutations";

@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { FaPlusSquare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
-import { LOGIN_USER, REGISTER_USER } from "../graphql/mutations";
+import { LOGIN_USER } from "../graphql/mutations";
 import "./styles/login.css";
-import { Box, Button, FormControl, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 const Login = () => {
   const context = useAuthContext();

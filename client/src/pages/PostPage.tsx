@@ -1,14 +1,12 @@
 import { useQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import moment from "moment";
 
 import avatar from "../components/assets/avatar.png";
 import CommentButton from "../components/CommentButton";
 import DeletePostButton from "../components/DeletePostButton";
 import LikeButton from "../components/LikeButton";
-import PostCard from "../components/PostCard";
 import { GET_POST } from "../graphql/queries";
 import PostComment from "../components/PostComment";
 import AddCommentForm from "../components/AddCommentForm";
@@ -22,7 +20,7 @@ type Comment = {
 const PostPage = () => {
   const { id } = useParams();
 
-  const { loading, error, data, client } = useQuery(GET_POST, {
+  const { loading, error, data } = useQuery(GET_POST, {
     variables: { postId: id },
   });
 
@@ -42,7 +40,7 @@ const PostPage = () => {
                 </p>
               </div>
 
-              <img src={avatar} />
+              <img src={avatar} alt="avatar" />
             </div>
             <p>{data.getPost.body}</p>
             <hr />

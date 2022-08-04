@@ -1,13 +1,5 @@
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 
 import { useAuthContext } from "../context/auth";
-import { Link } from "react-router-dom";
-import { capitalizeFirstLetter } from "../utils/helpers";
 import logo from "./assets/logo.webp";
 import LoggedInMenu from "./LoggedInMenu";
 import LoggedOutMenu from "./LoggedOutMenu";
@@ -26,7 +18,7 @@ import CustomizedInputBase from "./SearchBar";
 // };
 
 export default function NavBar() {
-  const { user, logout } = useAuthContext();
+  const { user } = useAuthContext();
 
   // const menuBar = user ? <LoggedInMenu /> : <LoggedOutMenu />;
 
