@@ -16,7 +16,6 @@ const white = "#FFFFFF";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
-  console.log(post)
   const profileAvatar =
     post.username === "jose"
       ? male3

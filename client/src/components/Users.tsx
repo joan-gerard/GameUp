@@ -15,16 +15,40 @@ const Users = () => {
     (uniqueUser) => uniqueUser !== user?.username
   );
 
+  const shuffle = (array: any) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+
+  shuffle(otherUsers)
+
+  const firstFourUsers = otherUsers.slice(0, 4);
+
   return (
     <>
       {!loading && !error && (
         <div className="user-list">
           <h2>Who to follow...</h2>
-          {otherUsers.map((user: any, i) => (
-            <div className="user-list__row">
+          {firstFourUsers.map((user: any, i) => (
+            <div key={i} className="user-list__row">
               <div className="user-list__info">
                 <img className="" src={avatar} alt="avatar" />
-                <p key={i}>{user}</p>
+                <p >{user}</p>
               </div>
               <button className="follow-button">Follow</button>
             </div>
