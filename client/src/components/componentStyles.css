@@ -38,6 +38,7 @@
 .post__user-info {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .avatar {
@@ -147,4 +148,8 @@
 }
 
 .add-comment__form {
+}
+
+.delete-comment__button {
+  height: 50%;
 }

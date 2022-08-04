@@ -102,6 +102,11 @@ html {
 .comment-container {
   margin: 10px 0
 }
+
+a {
+  color: white;
+  text-decoration: none; /* no underline */
+}
 /* .app-container {
   padding: 35px;
 } */

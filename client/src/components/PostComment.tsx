@@ -49,13 +49,20 @@ const PostComment: React.FC<PostCommentProps> = ({ comment, id }) => {
       <>
         <div className="comment-container">
           <div className="post__user-info">
-            <img className="avatar" src={avatar} alt="avatar" />
-            <div className="post__username">
-              <p className="">{comment.username}</p>
-              <p className="moment-date">
-                {moment(comment.createdAt).fromNow(false)}
-              </p>
+            <div className="align-items">
+              <img className="avatar" src={avatar} alt="avatar" />
+              <div className="post__username">
+                <p className="">{comment.username}</p>
+                <p className="moment-date">
+                  {moment(comment.createdAt).fromNow(false)}
+                </p>
+              </div>
             </div>
+            {user && user.username === comment.username && (
+              <button className="delete-comment__button" onClick={handleDeletePost}>
+                <FaTrash />
+              </button>
+            )}
           </div>
           {/* <p className="post__game-title">{comment.game}</p> */}
         </div>
