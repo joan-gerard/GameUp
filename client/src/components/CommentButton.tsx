@@ -7,13 +7,13 @@ const CommentButton: React.FC<CommentButtonProps> = ({ post }) => {
   };
 
   return (
-    <div className="row align-center">
+    <div className="">
       <p>{post.commentCount}</p>
-      <button onClick={commentOnPost}>
-      <a href={`/post/${post.id}`}><FaRegCommentDots /></a>
-
-        
-      </button>
+      <div onClick={commentOnPost}>
+        <a href={`/post/${post.id}`}>
+          <FaRegCommentDots />
+        </a>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 import { useAuthContext } from "../context/auth";
@@ -55,9 +56,24 @@ const PostForm = () => {
   return (
     <>
       {user && (
-        <>
+        <div className="post-form">
           <form onSubmit={onSubmit}>
-            <label>
+            <h2>Write a post</h2>
+            <div className="post-form__input">
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                // label="Write a post"
+                variant="outlined"
+                size="medium"
+                type="text"
+                name="body"
+                value={values.body}
+                onChange={onChange}
+              />
+              {/* <label>
               New Post:
               <input
                 type="text"
@@ -65,17 +81,18 @@ const PostForm = () => {
                 value={values.body}
                 onChange={onChange}
               />
-            </label>
-            <button type="submit">Submit</button>
+            </label> */}
+              <Button variant="contained" color="success" type="submit">
+                Post
+              </Button>
+            </div>
           </form>
           {errors && (
             <div>
-              <ul>
-                <li>{errors}</li>
-              </ul>
+              <p className="error-msg">* {errors}</p>
             </div>
           )}
-        </>
+        </div>
       )}
     </>
   );

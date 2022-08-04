@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { LOGIN_USER, REGISTER_USER } from "../graphql/mutations";
+import "./styles/login.css";
+import { Box, Button, FormControl, TextField } from "@mui/material";
 
 const Login = () => {
   const context = useAuthContext();
@@ -35,41 +37,58 @@ const Login = () => {
   }
   if (loading) return <p>Loading...</p>;
 
+  // starts here
   return (
-    <>
+    <div className="background-img">
       {!loading && (
-        <form onSubmit={onSubmit} className="column">
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={values.username}
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={onChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      )}
-      {Object.keys(errors).length > 0 && (
-        <div>
-          <ul>
-            {Object.values(errors).map((value: any, i) => (
-              <li key={i}>{value}</li>
-            ))}
-          </ul>
+        <div className="login-form">
+          <form onSubmit={onSubmit}>
+            <h2>Welcome back...</h2>
+            <div className="login-form__input">
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Username"
+                variant="outlined"
+                size="small"
+                type="text"
+                name="username"
+                value={values.username}
+                onChange={onChange}
+              />
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                size="small"
+                type="password"
+                name="password"
+                value={values.password}
+                onChange={onChange}
+              />
+
+              <Button variant="contained" color="success" type="submit">
+                Log in
+              </Button>
+            </div>
+          </form>
+          {Object.keys(errors).length > 0 && (
+            <div>
+              {Object.values(errors).map((value: any, i) => (
+                <p key={i} className="error-msg">
+                  * {value}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

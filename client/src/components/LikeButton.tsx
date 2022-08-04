@@ -28,9 +28,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({ post }) => {
 
   return (
     <div>
-      <button onClick={handleLikePost} className={liked ? "button-liked" : ""}>
+      <p className="">{post.likeCount}</p>
+      <div onClick={handleLikePost} className={liked ? "button-liked" : ""}>
         <FaThumbsUp />
-      </button>
+      </div>
     </div>
   );
 };

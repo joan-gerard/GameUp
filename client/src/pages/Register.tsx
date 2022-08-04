@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
+import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   const context = useAuthContext();
@@ -47,58 +48,85 @@ const Register = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <>
+    <div className="background-img">
       {!loading && (
-        <form onSubmit={onSubmit} className="column">
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={values.username}
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="text"
-              name="email"
-              value={values.email}
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Confirm Password:
-            <input
-              type="password"
-              name="confirmPassword"
-              value={values.confirmPassword}
-              onChange={onChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      )}
-      {Object.keys(errors).length > 0 && (
-        <div>
-          <ul>
-            {Object.values(errors).map((value: any, i) => (
-              <li key={i}>{value}</li>
-            ))}
-          </ul>
+        <div className="login-form">
+          <form onSubmit={onSubmit}>
+            <h2>Sign up to...</h2>
+            <div className="login-form__input">
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Username"
+                variant="outlined"
+                size="small"
+                type="text"
+                name="username"
+                value={values.username}
+                onChange={onChange}
+              />
+
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                size="small"
+                type="text"
+                name="email"
+                value={values.email}
+                onChange={onChange}
+              />
+
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                size="small"
+                type="password"
+                name="password"
+                value={values.password}
+                onChange={onChange}
+              />
+
+              <TextField
+                sx={{
+                  marginBottom: 2,
+                }}
+                id="outlined-basic"
+                label="Username"
+                variant="outlined"
+                size="small"
+                type="password"
+                name="confirmPassword"
+                value={values.confirmPassword}
+                onChange={onChange}
+              />
+
+              <Button variant="contained" color="success" type="submit">
+                Sign up
+              </Button>
+            </div>
+          </form>
+          {Object.keys(errors).length > 0 && (
+            <div>
+              {Object.values(errors).map((value: any, i) => (
+                <p key={i} className="error-msg">
+                  * {value}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

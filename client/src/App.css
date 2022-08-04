@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  /* background-color: #291f43; */
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #322651;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,17 +42,66 @@
     transform: rotate(360deg);
   }
 }
+.background-img {
+  height: 91vh;
+  background-image: url("./components/assets/gaming_bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-.app-container {
-  padding: 35px;
+.home__background-img {
+  background-image: url("./components/assets/gaming_bg1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home-layout {
+  /* display: flex;
+  flex-direction: row;
+  padding: 25px 0; */
+  display: grid;
+  grid-template-columns: 25% 75%;
+  padding: 25px 0;
+
+}
+.post-form {
+  padding-right: 15px;
+}
+
+.post-form form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.post-form__input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }
 
 .postCard {
+  /* border: 1px solid black;
+  padding: 5px;
+  border-radius: 8px;
+  width: 50%;
+  margin: auto;
+  background-color: white; */
+}
+
+/* .app-container {
+  padding: 35px;
+} */
+
+/* .postCard {
   border: 1px solid black;
   padding: 5px;
-  /* margin: 10px 250px; */
   border-radius: 8px;
 }
+
+
+
 
 .column {
   display: flex;
@@ -149,7 +204,4 @@ img {
   color: grey;
   font-weight: lighter;
   font-size: smaller;
-}
-.post-comment__body {
-  /* margin-top: 25px !important; */
-}
+} */

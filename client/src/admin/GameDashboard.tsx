@@ -2,6 +2,8 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { GET_GAMES, GET_PLATFORMS } from "../graphql/queries";
 
+import games from "./games";
+
 const GameDashboard = () => {
   const {
     loading: platformLoading,
@@ -13,8 +15,6 @@ const GameDashboard = () => {
     data: gameData,
     error: gameError,
   } = useQuery(GET_GAMES);
-
-  console.log(gameData);
 
   return (
     <div>
@@ -41,6 +41,17 @@ const GameDashboard = () => {
             </ul>
           </>
         )}
+      </div>
+      <div className="image-container">
+        <img src={games.diablo} />
+        <img src={games.elden_ring} />
+        <img src={games.fall_guys} />
+        <img src={games.fortnite} />
+        <img src={games.minecraft} />
+        <img src={games.call_of_Duty_Warzone} />
+        <img src={games.monster_Hunter_World} />
+        <img src={games.destiny_2} />
+        <img src={games.apex_legends} />
       </div>
     </div>
   );

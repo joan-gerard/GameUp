@@ -8,6 +8,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useAuthContext } from "../context/auth";
 import { Link } from "react-router-dom";
 import { capitalizeFirstLetter } from "../utils/helpers";
+import logo from "./assets/logo.webp";
+import LoggedInMenu from "./LoggedInMenu";
+import LoggedOutMenu from "./LoggedOutMenu";
+import "./componentStyles.css";
+import CustomizedInputBase from "./SearchBar";
 
 // type Context = {
 //   user: {
@@ -20,55 +25,18 @@ import { capitalizeFirstLetter } from "../utils/helpers";
 //   user: null | Context;
 // };
 
-
 export default function NavBar() {
   const { user, logout } = useAuthContext();
 
-  const menuBar = user ? (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <p>Hi, {capitalizeFirstLetter(user?.username)}</p>
-          <Link to="login">
-            <Button color="inherit" onClick={logout}>
-              Logout
-            </Button>
-          </Link>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  ) : (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Link to="login">
-            <Button color="inherit">Login</Button>
-          </Link>
-          <Link to="register">
-            <Button color="inherit">Register</Button>
-          </Link>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+  // const menuBar = user ? <LoggedInMenu /> : <LoggedOutMenu />;
 
-  return menuBar;
+  return (
+    <div className="navigation-bar">
+      <div className="navigation-bar__primary">
+        <img src={logo} alt="logo" />
+        <CustomizedInputBase />
+      </div>
+      <div className="">{user ? <LoggedInMenu /> : <LoggedOutMenu />}</div>
+    </div>
+  );
 }

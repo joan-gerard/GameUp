@@ -11,6 +11,10 @@ import male6 from "./assets/male6.png";
 import avatar from "./assets/avatar.png";
 import DeletePostButton from "./DeletePostButton";
 import LikeButton from "./LikeButton";
+import { Card, Container } from "@mui/material";
+
+const light = "#322651";
+const white = "#FFFFFF";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const profileAvatar =
@@ -25,31 +29,35 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       : avatar;
 
   return (
-    <div className="postCard">
-      <div className="row jc-between bg-primary p2">
-        <div className="column jc-between">
-          <p className="m0">{post.username}</p>
-          <p className="m0 moment-date">
-            {moment(post.createdAt).fromNow(false)}
-          </p>
+    <Card
+      sx={{
+        backgroundColor: light,
+        margin: "0 15px",
+        marginBottom: '10px',
+        padding: 2,
+        borderRadius: "16px",
+        color: white,
+      }}
+    >
+      <div className="post__user-info">
+        <img className="avatar" src={profileAvatar} />
+        <div className="">
+          <p className="">{post.username}</p>
+          <p className="">{moment(post.createdAt).fromNow(false)}</p>
         </div>
-
-        <img src={profileAvatar} />
       </div>
       <p>{post.body}</p>
+
       <hr />
 
-      <div className="action-container jc-between">
-        <div className="row align-center ">
-          <div className="row align-center">
-            <p className="">{post.likeCount}</p>
-            <LikeButton post={post} />
-          </div>
+      <div className="post_action-container">
+        <div className="post_action-buttons">
+          <LikeButton post={post} />
           <CommentButton post={post} />
         </div>
         <DeletePostButton post={post} />
       </div>
-    </div>
+    </Card>
   );
 };
 
