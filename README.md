@@ -1,8 +1,9 @@
 # Social Media App
+A platform to help gamers find coop partners or give/receive tips
 
 ## The app
 
-A basic social media app:
+MVP:
 - users are able to sign in and sign up
 - users are able to write and delete posts
 - users are able to like and comment other users' posts
@@ -10,14 +11,17 @@ A basic social media app:
 ## The Stack
 
 * Frontend
-    * React, Semantic UI
+    * React, Material UI
 * Server
-    * Express-graphql, node.js, Graphql, Mongoose, Apollo Server
+    * Apollo Server, Node.js, Graphql, Mongoose, 
 * Data
     * MongoDB
+* Auth
+    * JWT
+
 
 
 ## Get Started
 
-[Queries & Mutations Gists](https://)
+Upcoming [Queries & Mutations Gists](https://)
 
