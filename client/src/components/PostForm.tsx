@@ -19,7 +19,7 @@ const PostForm = () => {
   });
   // const { loading, data } = useQuery(GET_POSTS);
 
-  const [createPost, { loading, error }] = useMutation(CREATE_POST, {
+  const [createPost, { loading }] = useMutation(CREATE_POST, {
     variables: values,
 
     // update(proxy, result) {

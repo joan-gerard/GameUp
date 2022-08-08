@@ -12,7 +12,7 @@ type UserState = {
   user: null | JWT;
 };
 
-type AuthContext = UserState & {
+type AuthContextType = UserState & {
   login: (userData: any) => void,
   logout: () => void,
 }
@@ -31,7 +31,7 @@ if (localStorage.getItem("jwtToken")) {
   }
 }
 
-const AuthContext = createContext<AuthContext>({
+const AuthContext = createContext<AuthContextType>({
   user: null,
   login: (userData: any) => {},
   logout: () => {},

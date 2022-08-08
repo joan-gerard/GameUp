@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaHeart, FaRegHeart, FaThumbsUp } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 import { useAuthContext } from "../context/auth";
 import { LIKE_POST } from "../graphql/mutations";

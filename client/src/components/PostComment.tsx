@@ -4,10 +4,6 @@ import { useAuthContext } from "../context/auth";
 import { FaTrash } from "react-icons/fa";
 import { DELETE_COMMENT } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
-import { Card } from "@mui/material";
-import DeletePostButton from "./DeletePostButton";
-import CommentButton from "./CommentButton";
-import LikeButton from "./LikeButton";
 import avatar from "./assets/avatar.png";
 
 // type PostCommentProps = {
@@ -17,8 +13,8 @@ import avatar from "./assets/avatar.png";
 //   createdAt: string;
 // };
 
-const light = "#322651";
-const white = "#FFFFFF";
+// const light = "#322651";
+// const white = "#FFFFFF";
 
 const PostComment: React.FC<PostCommentProps> = ({ comment, id }) => {
   const { user } = useAuthContext();

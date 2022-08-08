@@ -24,6 +24,7 @@ type Post = {
   };
 };
 
+
 type PostCardProps = {
   post: Post;
 };

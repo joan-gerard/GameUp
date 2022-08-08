@@ -6,7 +6,7 @@
 .navigation-bar {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   height: 8vh;
   display: flex;
   flex-direction: row;
@@ -23,7 +23,7 @@
 }
 .navigation-bar__primary img {
   height: 60px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .logged-in__menu {

@@ -152,7 +152,3 @@ const PostPage = () => {
 };
 
 export default PostPage;
-
-{
-  /* <hr /> */
-}
