@@ -8,7 +8,7 @@ import CommentButton from "../components/CommentButton";
 import DeletePostButton from "../components/DeletePostButton";
 import LikeButton from "../components/LikeButton";
 import { GET_POST } from "../graphql/queries";
-import CommentForm from "../components/CommentForm";
+import CommentCard from "../components/CommentCard";
 import AddCommentForm from "../components/AddCommentForm";
 import { Card } from "@mui/material";
 
@@ -101,7 +101,7 @@ const PostPage = () => {
             >
               {data.getPost.comments &&
                 data.getPost.comments.map((comment: Comment, i: number) => (
-                  <CommentForm key={i} comment={comment} id={id} />
+                  <CommentCard key={i} comment={comment} id={id} />
                 ))}
             </Card>
           ) : (

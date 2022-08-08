@@ -26,6 +26,8 @@ function Redirect({ to }: RedirectProps) {
 const AuthRoute = () => {
   const { user } = useAuthContext();
 
+  console.log('Authroute')
+
   return (
     <Router>
       <NavBar />

@@ -6,17 +6,8 @@ import { DELETE_COMMENT } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import avatar from "./assets/avatar.png";
 
-// type PostCommentProps = {
-//   id: string;
-//   body: string;
-//   username: string;
-//   createdAt: string;
-// };
 
-// const light = "#322651";
-// const white = "#FFFFFF";
-
-const CommentForm: React.FC<CommentFormProps> = ({ comment, id }) => {
+const CommentCard: React.FC<CommentCardProps> = ({ comment, id }) => {
   const { user } = useAuthContext();
 
   const [deleteComment] = useMutation(DELETE_COMMENT, {
@@ -101,4 +92,4 @@ const CommentForm: React.FC<CommentFormProps> = ({ comment, id }) => {
   );
 };
 
-export default CommentForm;
+export default CommentCard;

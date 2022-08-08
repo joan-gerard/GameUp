@@ -6,19 +6,19 @@ import "./App.css";
 import { AuthProvider } from "./context/auth";
 import AuthRoute from "./utils/AuthRoute";
 
-const cache = new InMemoryCache({
-  typePolicies: {
-    Query: {
-      fields: {
-        //   clients: {
-        //     merge(_existing, incoming) {
-        //       return incoming;
-        //     },
-        //   },
-      },
-    },
-  },
-});
+// const cache = new InMemoryCache({
+//   typePolicies: {
+//     Query: {
+//       fields: {
+//           clients: {
+//             merge(_existing, incoming) {
+//               return incoming;
+//             },
+//           },
+//       },
+//     },
+//   },
+// });
 const httpLink = createHttpLink({
   uri: 'http://localhost:5000',
 });
@@ -39,7 +39,7 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   // @ts-ignore
   link: authLink.concat(httpLink),
-  cache,
+  cache: new InMemoryCache()
 });
 
 

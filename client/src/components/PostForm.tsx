@@ -10,49 +10,41 @@ import { usePostForm } from "../utils/hooks";
 
 const PostForm = () => {
   const { user } = useAuthContext();
-  const [errors, setErrors] = useState<any>("");
-  // const [gameState, setGameState] = React.useState([]);
+  const [errors, setErrors] = useState<string>("");
 
   const { values, onChange, onSubmit } = usePostForm(createPostCb, setErrors, {
     body: "",
     game: "",
   });
-  // const { loading, data } = useQuery(GET_POSTS);
 
   const [createPost, { loading }] = useMutation(CREATE_POST, {
     variables: values,
+    update(proxy, result) {
+      const data = proxy.readQuery<GET_POSTS_readQuery>({
+        query: GET_POSTS,
+      });
 
-    // update(proxy, result) {
-    //   const data = proxy.readQuery({
-    //     query: GET_POSTS,
-    //   });
-    //   console.log("proxy", data);
-    //   console.log("result", result);
-    //   // @ts-ignore
-    //   data.getPosts = [...data.getPosts, result.data.createPost];
-    //   // @ts-ignore
-    //   console.log("data.getPosts", data.getPosts);
-    //   proxy.writeQuery({ query: GET_POSTS, data });
-    //   values.body = "";
-    // },
+      if (data !== null) {
+        // below: avoid array mutation - create new array instead
+        const updatedPosts = [result.data.createPost, ...data.getPosts];
+        proxy.writeQuery({
+          query: GET_POSTS,
+          data: { getPosts: updatedPosts },
+        });
+        values.body = "";
+      }
+    },
 
-    // update(cache, { data: { createPost } }) {
-    //   const { posts } = cache.readQuery({ query: GET_POSTS }) || {};
-    //   console.log("update cache", posts);
-    //   cache.writeQuery({
-    //     query: GET_POSTS,
-    //     data: { posts: [...(posts || []), createPost] },
-    //   });
-    // },
     onError(err) {
       setErrors(err.graphQLErrors[0].message);
     },
-    refetchQueries: [{ query: GET_POSTS }], // not recommended to avoid too many queries
   });
 
   function createPostCb() {
     createPost();
   }
+
+  console.log('postform errors', typeof errors)
 
   if (loading) return <p>Posting...</p>;
 

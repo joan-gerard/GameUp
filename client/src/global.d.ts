@@ -47,7 +47,7 @@ type DeletePostButtonProps = {
 type LikeButtonProps = {
   post: Post;
 };
-type CommentFormProps = {
+type CommentCardProps = {
   comment: {
     id: string;
     body: string;
@@ -64,6 +64,10 @@ type AddCommentFormProps = {
 type GameListSelectProps = {
   gameState: string[]
   setGameState: any
+}
+
+type GET_POSTS_readQuery = {
+  getPosts: [Post]
 }
 
 // @ts-ignore
