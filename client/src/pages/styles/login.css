@@ -15,7 +15,7 @@
 .login-form__input {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -25,4 +25,14 @@
 .error-msg {
     margin: 5px 0;
     color: red;
+}
+
+.show-password__btn-div {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.test {
+    background-color: red;
 }

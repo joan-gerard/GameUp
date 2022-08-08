@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { LOGIN_USER } from "../graphql/mutations";
 import "./styles/login.css";
-import { Button, TextField } from "@mui/material";
+import { toggleShowPassword } from "../utils/helpers";
 
 const Login = () => {
   const context = useAuthContext();
-
   const [errors, setErrors] = useState<any>({});
-
+  const [passwordIsShowing, setPasswordIsShowing] = useState<boolean>(false);
   const navigate = useNavigate();
+  const passwordInputType = passwordIsShowing ? "text" : "password";
 
   const { onChange, onSubmit, values } = useUserForm(loginUserCb, {
     username: "",
@@ -34,6 +36,15 @@ const Login = () => {
   function loginUserCb() {
     loginUser();
   }
+
+  // const toggleShowPassword = () => {
+  //   if (passwordIsShowing === true) {
+  //     setPasswordIsShowing(false);
+  //   } else {
+  //     setPasswordIsShowing(true);
+  //   }
+  // };
+
   if (loading) return <p>Loading...</p>;
 
   // starts here
@@ -59,17 +70,26 @@ const Login = () => {
               />
               <TextField
                 sx={{
-                  marginBottom: 2,
+                  marginBottom: 0.5,
                 }}
                 id="outlined-basic"
                 label="Password*"
                 variant="outlined"
                 size="small"
-                type="password"
+                type={passwordInputType}
                 name="password"
                 value={values.password}
                 onChange={onChange}
               />
+              <div className="show-password__btn-div">
+                <div
+                  onClick={() =>
+                    toggleShowPassword(passwordIsShowing, setPasswordIsShowing)
+                  }
+                >
+                  {passwordIsShowing ? <FaEyeSlash /> : <FaEye />}
+                </div>
+              </div>
 
               <Button variant="contained" color="success" type="submit">
                 Log in

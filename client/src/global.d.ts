@@ -47,7 +47,7 @@ type DeletePostButtonProps = {
 type LikeButtonProps = {
   post: Post;
 };
-type PostCommentProps = {
+type CommentFormProps = {
   comment: {
     id: string;
     body: string;
