@@ -43,7 +43,7 @@ const AuthRoute = () => {
             path="/register"
             element={user ? <Redirect to="/" /> : <Register />}
           />
-          <Route path="/post/:id" element={<PostPage />} />
+          <Route path="/post/:id" element={user ? <PostPage />: <Redirect to="/login" />} />
           {user?.email === "admin@mail.com" && (
             <Route path="/gameDB" element={<GameDashboard />} />
           )}
