@@ -44,8 +44,6 @@ const PostForm = () => {
     createPost();
   }
 
-  console.log('postform errors', typeof errors)
-
   if (loading) return <p>Posting...</p>;
 
   return (

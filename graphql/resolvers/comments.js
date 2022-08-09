@@ -39,7 +39,6 @@ module.exports = {
         if (post.comments[commentIndex].username === user.username) {
           post.comments.splice(commentIndex, 1);
 
-          console.log('deleteComment ', { postComments: post.comments })
           await post.save();
           return post;
         } else {

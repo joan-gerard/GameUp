@@ -8,8 +8,8 @@ export const GET_POSTS = gql`
       game
       createdAt
       username
-      likeCount
-      commentCount
+      # likeCount
+      # commentCount
       likes {
         username
       }
@@ -30,8 +30,8 @@ export const GET_POST = gql`
       game
       createdAt
       username
-      likeCount
-      commentCount
+      # likeCount
+      # commentCount
       likes {
         username
       }
@@ -64,20 +64,3 @@ export const GET_GAMES = gql`
   }
 `;
 
-// query getPosts {
-//     id
-//     body
-//     createdAt
-//     username
-//     likeCount
-//     commentCount
-//     likes {
-//       username
-//     }
-//     comments {
-//       id
-//       username
-//       createdAt
-//       body
-//     }
-//   }

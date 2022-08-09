@@ -1,8 +1,6 @@
 import React from "react";
 import games from "../admin/games";
 
-console.log(games);
-
 const Games = () => {
   return (
     <div className="image-container">

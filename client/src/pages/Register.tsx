@@ -9,7 +9,6 @@ import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   const context = useAuthContext();
-  console.log("context", context);
 
   const [errors, setErrors] = useState<any>({});
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ const Register = () => {
 
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
     update(proxy, result) {
-      console.log(result);
       context.login(result.data.register);
 
       navigate("/");

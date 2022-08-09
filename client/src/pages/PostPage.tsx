@@ -31,7 +31,7 @@ const PostPage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Something Went Wrong</p>;
-  console.log("PostPage", data);
+  
   return (
     <div>
       {!loading && !error && (
@@ -87,7 +87,7 @@ const PostPage = () => {
             <AddCommentForm id={id} />
           </Card>
 
-          {data.getPost.commentCount > 0 ? (
+          {data.getPost.comments.length > 0 ? (
             <Card
               sx={{
                 backgroundColor: light,

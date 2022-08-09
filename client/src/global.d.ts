@@ -11,14 +11,14 @@ type Post = {
   username: string;
   game: string,
   createdAt: string;
-  commentCount: number;
-  likeCount: number;
-  comments: {
+  // commentCount: number;
+  // likeCount: number;
+  comments: [{
     body: string;
     createdAt: string;
     id: string;
     username: string;
-  };
+  }];
   likes: {
     [username: string];
   };

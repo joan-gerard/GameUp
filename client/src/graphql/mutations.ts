@@ -49,14 +49,14 @@ export const CREATE_POST = gql`
         username
         createdAt
       }
-      likeCount
+      # likeCount
       comments {
         id
         username
         body
         createdAt
       }
-      commentCount
+      # commentCount
     }
   }
 `;
@@ -74,7 +74,7 @@ export const LIKE_POST = gql`
         id
         username
       }
-      likeCount
+      # likeCount
     }
   }
 `;
@@ -88,7 +88,7 @@ export const CREATE_COMMENT = gql`
         body
         username
       }
-      commentCount
+      # commentCount
     }
   }
 `;

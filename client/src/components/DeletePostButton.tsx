@@ -21,8 +21,6 @@ const DeletePostButton: React.FC<DeletePostButtonProps> = ({ post }) => {
   });
 
   const handleDeletePost = () => {
-    console.log(post.id);
-
     deletePost();
     if (id) {
       navigate("/");
