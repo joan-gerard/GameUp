@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuthContext } from "../context/auth";
-import { capitalizeFirstLetter } from "../utils/helpers";
 import { Button } from "@mui/material";
 
 const LoggedInMenu = () => {
@@ -10,7 +9,6 @@ const LoggedInMenu = () => {
     <div className="logged-in__menu">
       {user && (
         <>
-          <p className="user-greeting">Hi, {capitalizeFirstLetter(user?.username)}</p>
           <Button
             sx={{
               marginLeft: 2,

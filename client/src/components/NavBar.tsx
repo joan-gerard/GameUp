@@ -1,10 +1,11 @@
 import { useAuthContext } from "../context/auth";
-import logo from "./assets/logo.webp";
+import logo from "./assets/logo-transparent.png";
 import LoggedInMenu from "./LoggedInMenu";
 import LoggedOutMenu from "./LoggedOutMenu";
 import "./componentStyles.css";
 import CustomizedInputBase from "./SearchBar";
 import { useNavigate } from "react-router-dom";
+import { capitalizeFirstLetter } from "../utils/helpers";
 
 // type Context = {
 //   user: {
@@ -27,9 +28,14 @@ export default function NavBar() {
   return (
     <div className="navigation-bar">
       <div className="navigation-bar__primary">
-        <img src={logo} alt="logo" onClick={() => navigate('/')} />
-        <CustomizedInputBase />
+        <img src={logo} alt="logo" onClick={() => navigate("/")} />
+        {user && (
+          <p className="user-greeting">
+            Hi, {capitalizeFirstLetter(user?.username)}
+          </p>
+        )}
       </div>
+      {user && <CustomizedInputBase />}
       <div className="">{user ? <LoggedInMenu /> : <LoggedOutMenu />}</div>
     </div>
   );
