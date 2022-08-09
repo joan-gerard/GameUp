@@ -1,11 +1,14 @@
 import { useAuthContext } from "../context/auth";
 import logo from "./assets/logo-transparent.png";
+import avatar from "./assets/avatar.png";
 import LoggedInMenu from "./LoggedInMenu";
 import LoggedOutMenu from "./LoggedOutMenu";
 import "./componentStyles.css";
 import CustomizedInputBase from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import { capitalizeFirstLetter } from "../utils/helpers";
+
+import "../global.css";
 
 // type Context = {
 //   user: {
@@ -23,7 +26,7 @@ export default function NavBar() {
 
   const navigate = useNavigate();
 
-  // const menuBar = user ? <LoggedInMenu /> : <LoggedOutMenu />;
+  const navgiateToUserProfile = () => {};
 
   return (
     <div className="navigation-bar">
@@ -36,7 +39,18 @@ export default function NavBar() {
         )}
       </div>
       {user && <CustomizedInputBase />}
-      <div className="">{user ? <LoggedInMenu /> : <LoggedOutMenu />}</div>
+      <div className="row items-center">
+        {user ? (
+          <>
+            <a href={`/user/${user.username}`} className="flex" >
+              <img className="w-8 h-8" src={avatar} />
+            </a>
+            <LoggedInMenu />
+          </>
+        ) : (
+          <LoggedOutMenu />
+        )}
+      </div>
     </div>
   );
 }

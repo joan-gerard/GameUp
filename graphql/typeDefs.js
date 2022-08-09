@@ -67,5 +67,6 @@ module.exports = gql`
     likePost(postId: ID!): Post!
     createPlatform(name: String!): Platform!
     createGame(name: String!, releaseDate: String, platform: String): Game!
+    deleteUser(userId: String!): String!
   }
 `;

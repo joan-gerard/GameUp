@@ -105,3 +105,9 @@ export const DELETE_COMMENT = gql`
     }
   }
 `;
+
+export const DELETE_ACCOUNT = gql`
+  mutation deleteUser($userId: String!) {
+    deleteUser(userId: $userId)
+  }
+`;

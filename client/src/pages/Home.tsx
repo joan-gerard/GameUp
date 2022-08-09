@@ -9,7 +9,6 @@ import PostCard from "../components/PostCard";
 import PostForm from "../components/PostForm";
 import Users from "../components/Users";
 
-
 const primary = "#18132b";
 
 const Home = () => {

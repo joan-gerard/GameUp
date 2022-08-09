@@ -70,6 +70,15 @@ html {
 
 }
 
+.user-profile-layout {
+  /* display: flex;
+  flex-direction: row;
+  padding: 25px 0; */
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+
 .post-form form {
   background-color: white;
   padding: 20px;

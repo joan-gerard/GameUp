@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer } from "react";
 import jwtDecode from "jwt-decode";
 
 type JWT = {
+  id: string
   exp: number;
   username: string,
   email: string
@@ -15,6 +16,7 @@ type UserState = {
 type AuthContextType = UserState & {
   login: (userData: any) => void,
   logout: () => void,
+  deleteUser: () => void,
 }
 
 const initialState: UserState = { user: null };
@@ -35,6 +37,7 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   login: (userData: any) => {},
   logout: () => {},
+  deleteUser: () => {},
 });
 
 function authReducer(state: any, action: any) {
@@ -45,6 +48,11 @@ function authReducer(state: any, action: any) {
         user: action.payload,
       };
     case "LOGOUT":
+      return {
+        ...state,
+        user: null,
+      };
+    case "DELETE_USER":
       return {
         ...state,
         user: null,
@@ -71,10 +79,16 @@ function AuthProvider(props: any) {
       type: "LOGOUT",
     });
   }
+  function deleteUser() {
+    localStorage.removeItem("jwtToken");
+    dispatch({
+      type: "DELETE_USER",
+    });
+  }
 
   return (
     <AuthContext.Provider
-      value={{ user: state.user, login, logout }}
+      value={{ user: state.user, login, logout, deleteUser }}
       {...props}
     />
   );

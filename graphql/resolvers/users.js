@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { UserInputError } = require("apollo-server");
+const checkAuth = require("../../utils/check-auth");
 
 const {
   validateRegisterInput,
@@ -36,7 +37,7 @@ module.exports = {
     async login(_, { username, password }) {
       const { errors, valid } = validateLoginInput(username, password);
 
-      if(!valid) {
+      if (!valid) {
         throw new UserInputError("Errors", { errors });
       }
 
@@ -104,5 +105,49 @@ module.exports = {
         token,
       };
     },
+    async deleteUser(_, { userId }, context) {
+      const user = checkAuth(context);
+
+      const userProfile = await User.findById(userId);
+      await userProfile.delete();
+      return "Account deleted successfully!";
+    },
   },
 };
+
+// async deletePost(_, { postId }, context) {
+//   const user = checkAuth(context);
+
+//   try {
+//     const post = await Post.findById(postId);
+//     if (user.username === post.username) {
+//       await post.delete();
+//       return "Post deleted successfully!";
+//     } else {
+//       throw new AuthenticationError("Action not allowed");
+//     }
+//   } catch (err) {
+//     throw new Error(err);
+//   }
+// },
+
+// async deleteComment(_, { postId, commentId }, context) {
+//   const user = checkAuth(context);
+
+//   const post = await Post.findById(postId);
+
+//   if (post) {
+//     const commentIndex = post.comments.findIndex((c) => c.id === commentId);
+
+//     if (post.comments[commentIndex].username === user.username) {
+//       post.comments.splice(commentIndex, 1);
+
+//       await post.save();
+//       return post;
+//     } else {
+//       throw new AuthenticationError("Action not allowed");
+//     }
+//   } else {
+//     throw new UserInputError("Post not found");
+//   }
+// },
