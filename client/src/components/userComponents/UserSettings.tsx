@@ -1,10 +1,10 @@
 import React from "react";
+import ProfileImageUploader from "./ProfileImageUploader";
 
 const UserSettings = () => {
-
   return (
     <div>
-      <p>Settings</p>
+      <ProfileImageUploader />
     </div>
   );
 };
