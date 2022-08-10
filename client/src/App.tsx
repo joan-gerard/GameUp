@@ -20,28 +20,26 @@ import AuthRoute from "./utils/AuthRoute";
 //   },
 // });
 const httpLink = createHttpLink({
-  uri: 'http://localhost:5000',
+  uri: "http://localhost:5000",
 });
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('jwtToken');
+  const token = localStorage.getItem("jwtToken");
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : "",
-    }
-  }
+    },
+  };
 });
-
 
 const client = new ApolloClient({
   // @ts-ignore
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
-
 
 function App() {
   return (

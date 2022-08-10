@@ -24,14 +24,14 @@ const generateToken = (user) => {
 
 module.exports = {
   Query: {
-    // async getUsers() {
-    //   try {
-    //     const users = await User.find();
-    //     return users;
-    //   } catch (error) {
-    //     throw new Error(err);
-    //   }
-    // },
+    async getUsers() {
+      try {
+        const users = await User.find();
+        return users;
+      } catch (error) {
+        throw new Error(err);
+      }
+    },
   },
   Mutation: {
     async login(_, { username, password }) {
@@ -105,13 +105,18 @@ module.exports = {
         token,
       };
     },
-    async deleteUser(_, { userId }, context) {
-      const user = checkAuth(context);
-
+    async deleteUser(_, { userId }) {
+      console.log('deleteUser userId', userId)
+      // const user = checkAuth(context);
+      // console.log('deleteUser useuserrId', user)
       const userProfile = await User.findById(userId);
+      console.log('deleteUser userProfile', userProfile)
       await userProfile.delete();
       return "Account deleted successfully!";
     },
+    // async updateUser(_, {userId}, context) {
+
+    // }
   },
 };
 

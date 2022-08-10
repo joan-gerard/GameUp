@@ -28,6 +28,7 @@ module.exports = gql`
     email: String!
     token: String!
     username: String!
+    # profileImage: String
     createdAt: String!
   }
 
@@ -48,6 +49,7 @@ module.exports = gql`
     password: String!
     confirmPassword: String!
     email: String!
+    # profileImage: String
   }
 
   type Query {
