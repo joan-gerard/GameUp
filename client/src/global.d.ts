@@ -9,21 +9,22 @@ type Post = {
   body: string;
   id: string;
   username: string;
-  game: string,
+  game: string;
   createdAt: string;
   // commentCount: number;
   // likeCount: number;
-  comments: [{
-    body: string;
-    createdAt: string;
-    id: string;
-    username: string;
-  }];
+  comments: [
+    {
+      body: string;
+      createdAt: string;
+      id: string;
+      username: string;
+    }
+  ];
   likes: {
     [username: string];
   };
 };
-
 
 type PostCardProps = {
   post: Post;
@@ -62,12 +63,17 @@ type AddCommentFormProps = {
 };
 
 type GameListSelectProps = {
-  gameState: string[]
-  setGameState: any
-}
+  gameState: string[];
+  setGameState: any;
+};
 
 type GET_POSTS_readQuery = {
-  getPosts: [Post]
-}
+  getPosts: [Post];
+};
+
+type ProfileImageUploaderProps = {
+  setProfileImageUrl: any;
+  handleUpdateUserProfileImage: any;
+};
 
 // @ts-ignore

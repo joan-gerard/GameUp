@@ -8,7 +8,7 @@ import DeleteAccount from "./DeleteAccount";
 const UserProfile = () => {
   const [userProfileView, setUserProfileView] = React.useState("account");
 
-  const handleChange = (
+  const handleViewChange = (
     event: React.MouseEvent<HTMLElement>,
     nextView: string
   ) => {
@@ -29,7 +29,7 @@ const UserProfile = () => {
           orientation="vertical"
           value={userProfileView}
           exclusive
-          onChange={handleChange}
+          onChange={handleViewChange}
         >
           <ToggleButton value="account" aria-label="account">
             <span>Account</span>{" "}

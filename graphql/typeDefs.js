@@ -28,7 +28,7 @@ module.exports = gql`
     email: String!
     token: String!
     username: String!
-    # profileImage: String
+    profileImageUrl: String
     createdAt: String!
   }
 
@@ -49,7 +49,7 @@ module.exports = gql`
     password: String!
     confirmPassword: String!
     email: String!
-    # profileImage: String
+    profileImageUrl: String
   }
 
   type Query {
@@ -70,5 +70,6 @@ module.exports = gql`
     createPlatform(name: String!): Platform!
     createGame(name: String!, releaseDate: String, platform: String): Game!
     deleteUser(userId: String!): String!
+    updateUserProfileImage(userId: String!, profileImageUrl: String!): User!
   }
 `;

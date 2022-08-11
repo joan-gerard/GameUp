@@ -1,7 +1,11 @@
 import { FormEvent, useState } from "react";
+import { useAuthContext } from "../../context/auth";
 import styles from "./profileImageUploader.module.scss";
 
-const ProfileImageUploader = () => {
+const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
+  setProfileImageUrl,
+  handleUpdateUserProfileImage,
+}) => {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 
@@ -54,8 +58,11 @@ const ProfileImageUploader = () => {
         body: formData,
       }
     ).then((r) => r.json());
+
+    setProfileImageUrl(data.secure_url);
     setImageSrc(data.secure_url);
     setUploadData(data);
+    handleUpdateUserProfileImage()
   }
 
   return (

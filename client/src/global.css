@@ -48,6 +48,12 @@
 .w-8 {
   width: 2em;
 }
+.w-9 {
+  width: 2.25em;
+}
+.w-10 {
+  width: 2.50em;
+}
 
 /* height */
 .h-1 {
@@ -73,6 +79,12 @@
 }
 .h-8 {
   height: 2em;
+}
+.h-9 {
+  height: 2.25em;
+}
+.h-10 {
+  height: 2.50em;
 }
 
 /* padding */

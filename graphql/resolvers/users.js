@@ -16,6 +16,7 @@ const generateToken = (user) => {
       id: user.id,
       email: user.email,
       username: user.username,
+      profileImageUrl: user.profileImageUrl,
     },
     SECRET_KEY,
     { expiresIn: "1h" }
@@ -63,7 +64,15 @@ module.exports = {
     },
     async register(
       _,
-      { registerInput: { username, email, password, confirmPassword } }
+      {
+        registerInput: {
+          username,
+          email,
+          password,
+          confirmPassword,
+          profileImageUrl,
+        },
+      }
     ) {
       // validate user data
       const { valid, errors } = validateRegisterInput(
@@ -93,6 +102,7 @@ module.exports = {
         username,
         password,
         createdAt: new Date().toISOString(),
+        profileImageUrl,
       });
 
       const res = await newUser.save();
@@ -106,17 +116,23 @@ module.exports = {
       };
     },
     async deleteUser(_, { userId }) {
-      console.log('deleteUser userId', userId)
-      // const user = checkAuth(context);
-      // console.log('deleteUser useuserrId', user)
       const userProfile = await User.findById(userId);
-      console.log('deleteUser userProfile', userProfile)
       await userProfile.delete();
       return "Account deleted successfully!";
     },
-    // async updateUser(_, {userId}, context) {
+    async updateUserProfileImage(_, { userId, profileImageUrl }, context) {
+      const { username, email, createdAt } = await User.findByIdAndUpdate(userId, { profileImageUrl });
+      const updatedUser = {
+        id: userId,
+        createdAt,
+        username,
+        email,
+        profileImageUrl
+      };
 
-    // }
+      const token = generateToken(updatedUser);
+      return { ...updatedUser, token };
+    },
   },
 };
 

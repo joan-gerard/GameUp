@@ -10,11 +10,14 @@ import avatar from "./assets/avatar.png";
 import DeletePostButton from "./DeletePostButton";
 import LikeButton from "./LikeButton";
 import { Card } from "@mui/material";
+import { useAuthContext } from "../context/auth";
 
 const light = "#322651";
 const white = "#FFFFFF";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
+  const { user } = useAuthContext();
+
   const profileAvatar =
     post.username === "jose"
       ? male3
@@ -39,7 +42,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     >
       <div className="jc-between">
         <div className="post__user-info">
-          <img className="avatar" src={profileAvatar} alt="avatar" />
+          {user && (
+            <img
+              className="avatar"
+              src={profileAvatar}
+              // src={!user.profileImageUrl ? avatar : user.profileImageUrl}
+              alt="avatar"
+            />
+          )}
           <div className="post__username">
             <p className="">{post.username}</p>
             <p className="moment-date">

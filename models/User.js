@@ -4,7 +4,7 @@ const UserSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  // profileImage: String,
+  profileImageUrl: String,
   createdAt: String,
 });
 

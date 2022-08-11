@@ -30,7 +30,21 @@ export const LOGIN_USER = gql`
       id
       username
       email
+      profileImageUrl
       createdAt
+      token
+    }
+  }
+`;
+
+export const UPDATE_USER_PROFILE_IMAGE = gql`
+  mutation updateUserProfileImage($userId: String!, $profileImageUrl: String!) {
+    updateUserProfileImage(userId: $userId, profileImageUrl: $profileImageUrl) {
+      id
+      username
+      createdAt
+      profileImageUrl
+      email
       token
     }
   }

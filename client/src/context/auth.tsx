@@ -6,6 +6,7 @@ type JWT = {
   exp: number;
   username: string,
   email: string
+  profileImageUrl: string
   // whatever else is in the JWT.
 }
 
@@ -17,6 +18,9 @@ type AuthContextType = UserState & {
   login: (userData: any) => void,
   logout: () => void,
   deleteUser: () => void,
+  updateUserDetails: (data: any) => void
+  // profileImageUrlContext: string | null,
+  // setProfileImgContext: (ImgUrl: string) => void
 }
 
 const initialState: UserState = { user: null };
@@ -38,6 +42,9 @@ const AuthContext = createContext<AuthContextType>({
   login: (userData: any) => {},
   logout: () => {},
   deleteUser: () => {},
+  updateUserDetails: (data: any) => {}
+  // profileImageUrlContext: null,
+  // setProfileImgContext: (ImgUrl: string) => {}
 });
 
 function authReducer(state: any, action: any) {
@@ -56,6 +63,14 @@ function authReducer(state: any, action: any) {
       return {
         ...state,
         user: null,
+      };
+    case "UPDATE_USER_DETAILS":
+      return {
+        ...state,
+        user: {
+          ...state.user, 
+          profileImageUrl: action.payload.profileImageUrl
+        },
       };
     default:
       return state;
@@ -85,10 +100,18 @@ function AuthProvider(props: any) {
       type: "DELETE_USER",
     });
   }
+  function updateUserDetails(data: any) {
+    const userData = data.userData;
+    localStorage.setItem("jwtToken", userData.token);
+    dispatch({
+      type: "UPDATE_USER_DETAILS",
+      payload: userData
+    });
+  }
 
   return (
     <AuthContext.Provider
-      value={{ user: state.user, login, logout, deleteUser }}
+      value={{ user: state.user, login, logout, deleteUser, updateUserDetails }}
       {...props}
     />
   );

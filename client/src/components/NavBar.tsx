@@ -43,7 +43,7 @@ export default function NavBar() {
         {user ? (
           <>
             <a href={`/user/${user.username}`} className="flex" >
-              <img className="w-8 h-8" src={avatar} />
+              <img className="w-10 h-10" src={!user.profileImageUrl ? avatar : user.profileImageUrl} style={{ borderRadius: '9999px' }} />
             </a>
             <LoggedInMenu />
           </>
