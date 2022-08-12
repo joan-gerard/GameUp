@@ -14,3 +14,10 @@ export const toggleShowPassword = (
     cb(true);
   }
 };
+
+export const UrlExists = (url: string | URL) => {
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.send();
+  return http.status;
+}

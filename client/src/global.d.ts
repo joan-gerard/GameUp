@@ -72,8 +72,7 @@ type GET_POSTS_readQuery = {
 };
 
 type ProfileImageUploaderProps = {
-  setProfileImageUrl: any;
-  handleUpdateUserProfileImage: any;
+  setProfileImageUrl: (imageUrl: string) => void;
 };
 
 // @ts-ignore

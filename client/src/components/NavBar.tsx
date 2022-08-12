@@ -6,7 +6,7 @@ import LoggedOutMenu from "./LoggedOutMenu";
 import "./componentStyles.css";
 import CustomizedInputBase from "./SearchBar";
 import { useNavigate } from "react-router-dom";
-import { capitalizeFirstLetter } from "../utils/helpers";
+import { capitalizeFirstLetter, UrlExists } from "../utils/helpers";
 
 import "../global.css";
 
@@ -42,8 +42,18 @@ export default function NavBar() {
       <div className="row items-center">
         {user ? (
           <>
-            <a href={`/user/${user.username}`} className="flex" >
-              <img className="w-10 h-10" src={!user.profileImageUrl ? avatar : user.profileImageUrl} style={{ borderRadius: '9999px' }} />
+            <a href={`/user/${user.username}`} className="flex">
+              <img
+                className="w-10 h-10"
+                src={
+                  !user.profileImageUrl
+                    ? avatar
+                    : UrlExists(user.profileImageUrl) !== 404
+                    ? user.profileImageUrl
+                    : avatar
+                }
+                style={{ borderRadius: "9999px" }}
+              />
             </a>
             <LoggedInMenu />
           </>

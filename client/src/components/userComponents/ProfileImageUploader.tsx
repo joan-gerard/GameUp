@@ -4,10 +4,9 @@ import styles from "./profileImageUploader.module.scss";
 
 const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
   setProfileImageUrl,
-  handleUpdateUserProfileImage,
 }) => {
-  const [imageSrc, setImageSrc] = useState();
-  const [uploadData, setUploadData] = useState();
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [uploadData, setUploadData] = useState(null);
 
   /**
    * handleOnChange
@@ -17,9 +16,11 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
   function handleOnChange(e: FormEvent<HTMLFormElement>) {
     const reader = new FileReader();
 
-    reader.onload = function (onLoadEvent: any) {
-      setImageSrc(onLoadEvent.target.result);
-      setUploadData(undefined);
+    reader.onload = function (onLoadEvent: ProgressEvent<FileReader> | null) {
+      if (typeof onLoadEvent?.target?.result === "string") {
+        setImageSrc(onLoadEvent.target.result);
+      }
+      // setUploadData(null);
     };
 
     // @ts-ignore
@@ -33,10 +34,9 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
 
   async function handleOnSubmit(e: {
     preventDefault: () => void;
-    currentTarget: any;
+    currentTarget: HTMLFormElement;
   }) {
     e.preventDefault();
-
     const form = e.currentTarget;
     const fileInput: any = Array.from(form.elements).find(
       // @ts-ignore
@@ -45,11 +45,13 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
 
     const formData = new FormData();
 
-    for (const file of fileInput.files) {
-      formData.append("file", file);
-    }
+    if (!!fileInput) {
+      for (const file of fileInput.files) {
+        formData.append("file", file);
+      }
 
-    formData.append("upload_preset", "my-uploads");
+      formData.append("upload_preset", "my-uploads");
+    }
 
     const data = await fetch(
       "https://api.cloudinary.com/v1_1/dpo5hvd8r/image/upload",
@@ -58,19 +60,16 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
         body: formData,
       }
     ).then((r) => r.json());
-
     setProfileImageUrl(data.secure_url);
+
     setImageSrc(data.secure_url);
     setUploadData(data);
-    handleUpdateUserProfileImage()
   }
 
   return (
     <div className="">
       <main className="">
         <h1 className="">Image Uploader</h1>
-
-        <p className="">Upload your image to Cloudinary!</p>
 
         <form
           className=""
@@ -81,8 +80,12 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
           <p>
             <input type="file" name="file" />
           </p>
-
-          <img className={styles.uploadedImage} src={imageSrc} />
+          <div className={styles.uploadedImageContainer}>
+            <img
+              className={imageSrc ? styles.uploadedImage : ""}
+              src={imageSrc || ""}
+            />
+          </div>
 
           {imageSrc && !uploadData && (
             <p>
