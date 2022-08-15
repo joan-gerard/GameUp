@@ -45,9 +45,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
-        <div className="app-container">
-          <AuthRoute />
-        </div>
+        <AuthRoute />
       </AuthProvider>
     </ApolloProvider>
   );

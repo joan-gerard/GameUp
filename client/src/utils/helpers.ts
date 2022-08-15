@@ -19,5 +19,6 @@ export const UrlExists = (url: string | URL) => {
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);
   http.send();
+  console.log(http.status)
   return http.status;
 }

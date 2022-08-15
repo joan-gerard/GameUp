@@ -49,16 +49,13 @@ const Login = () => {
 
   // starts here
   return (
-    <div className="background-img">
+    <div className="login-page">
       {!loading && (
         <div className="login-form">
           <form onSubmit={onSubmit}>
             <h2>Welcome back...</h2>
             <div className="login-form__input">
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
+              {/* <TextField
                 id="outlined-basic"
                 label="Username*"
                 variant="outlined"
@@ -67,11 +64,8 @@ const Login = () => {
                 name="username"
                 value={values.username}
                 onChange={onChange}
-              />
-              <TextField
-                // sx={{
-                //   marginBottom: 0.5,
-                // }}
+              /> */}
+              {/* <TextField
                 id="outlined-basic"
                 label="Password*"
                 variant="outlined"
@@ -79,6 +73,20 @@ const Login = () => {
                 type={passwordInputType}
                 name="password"
                 value={values.password}
+                onChange={onChange}
+              /> */}
+              <input
+                type="text"
+                placeholder="username"
+                name="username"
+                // value={values.username}
+                onChange={onChange}
+              />
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                // value={values.password}
                 onChange={onChange}
               />
               <div className="show-password__btn-div">
@@ -91,9 +99,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <Button variant="contained" color="success" type="submit">
-                Log in
-              </Button>
+              <button type="submit">Log in</button>
             </div>
           </form>
           {Object.keys(errors).length > 0 && (

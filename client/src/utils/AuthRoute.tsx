@@ -7,7 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import NavBar from "../components/NavBar";
+import Header from "../components/Header";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
@@ -29,8 +29,8 @@ const AuthRoute = () => {
 
   return (
     <Router>
-      <NavBar />
-      <div>
+      <Header />
+      <main>
         <Routes>
           <Route
             path="/"
@@ -51,7 +51,7 @@ const AuthRoute = () => {
           )}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
+      </main>
     </Router>
   );
 };

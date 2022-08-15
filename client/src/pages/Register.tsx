@@ -45,71 +45,45 @@ const Register = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="background-img">
+    <div className="register-page">
       {!loading && (
         <div className="login-form">
           <form onSubmit={onSubmit}>
             <h2>Sign up to...</h2>
             <div className="login-form__input">
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
-                id="outlined-basic"
-                label="Username*"
-                variant="outlined"
-                size="small"
+              <input
+                placeholder="Username*"
                 type="text"
                 name="username"
                 value={values.username}
                 onChange={onChange}
               />
 
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
-                id="outlined-basic"
-                label="Email*"
-                variant="outlined"
-                size="small"
+              <input
+                placeholder="Email*"
                 type="text"
                 name="email"
                 value={values.email}
                 onChange={onChange}
               />
 
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
-                id="outlined-basic"
-                label="Password*"
-                variant="outlined"
-                size="small"
+              <input
+                placeholder="Password*"
                 type="password"
                 name="password"
                 value={values.password}
                 onChange={onChange}
               />
 
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
-                id="outlined-basic"
-                label="Confirm Password*"
-                variant="outlined"
-                size="small"
+              <input
+                placeholder="Confirm Password*"
                 type="password"
                 name="confirmPassword"
                 value={values.confirmPassword}
                 onChange={onChange}
               />
 
-              <Button variant="contained" color="success" type="submit">
-                Sign up
-              </Button>
+              <button type="submit">Sign up</button>
             </div>
           </form>
           {Object.keys(errors).length > 0 && (
