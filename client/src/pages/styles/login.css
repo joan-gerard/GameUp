@@ -1,4 +1,4 @@
-.login-form {
+/* .login-form {
   position: absolute;
   background-color: white;
   border-radius: 5px;
@@ -15,7 +15,6 @@
 .login-form__input {
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -35,4 +34,4 @@
 
 .test {
     background-color: red;
-}
+} */

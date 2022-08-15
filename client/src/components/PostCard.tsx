@@ -31,14 +31,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
   return (
     <Card
-      sx={{
-        backgroundColor: light,
-        margin: "0 15px",
-        marginBottom: "10px",
-        padding: 2,
-        borderRadius: "16px",
-        color: white,
-      }}
+      // sx={{
+      //   backgroundColor: light,
+      //   margin: "0 15px",
+      //   marginBottom: "10px",
+      //   padding: 2,
+      //   borderRadius: "16px",
+      //   color: white,
+      // }}
     >
       <div className="jc-between">
         <div className="post__user-info">

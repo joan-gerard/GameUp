@@ -30,11 +30,11 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
           onSubmit={handleCreateComment}
         >
           <TextField
-            sx={{
-              backgroundColor: white,
-              borderRadius: "8px",
-              marginRight: "10px",
-            }}
+            // sx={{
+            //   backgroundColor: white,
+            //   borderRadius: "8px",
+            //   marginRight: "10px",
+            // }}
             label="Comment"
             id="outlined-size-small"
             size="small"

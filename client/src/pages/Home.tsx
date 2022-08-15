@@ -20,7 +20,8 @@ const Home = () => {
   // const latestPosts = data.getPosts.slice(0, 5);
 
   return (
-    <Container maxWidth={false} sx={{ backgroundColor: primary }}>
+    <Container>
+    {/* <Container maxWidth={false} sx={{ backgroundColor: primary }}> */}
       {/* <Games /> */}
       {!loading && !error && (
         <div className="home-layout">

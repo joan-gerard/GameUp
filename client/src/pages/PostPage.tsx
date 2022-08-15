@@ -37,15 +37,15 @@ const PostPage = () => {
       {!loading && !error && (
         <>
           <Card
-            sx={{
-              backgroundColor: light,
-              margin: "0 150px",
-              marginTop: "15px",
-              marginBottom: "10px",
-              padding: 2,
-              borderRadius: "16px",
-              color: white,
-            }}
+            // sx={{
+            //   backgroundColor: light,
+            //   margin: "0 150px",
+            //   marginTop: "15px",
+            //   marginBottom: "10px",
+            //   padding: 2,
+            //   borderRadius: "16px",
+            //   color: white,
+            // }}
           >
             <div className="jc-between">
               <div className="post__user-info">
@@ -74,30 +74,30 @@ const PostPage = () => {
             </div>
           </Card>
           <Card
-            sx={{
-              backgroundColor: white,
-              margin: "0 150px",
-              marginTop: "15px",
-              marginBottom: "10px",
-              padding: 2,
-              borderRadius: "16px",
-              color: white,
-            }}
+            // sx={{
+            //   backgroundColor: white,
+            //   margin: "0 150px",
+            //   marginTop: "15px",
+            //   marginBottom: "10px",
+            //   padding: 2,
+            //   borderRadius: "16px",
+            //   color: white,
+            // }}
           >
             <AddCommentForm id={id} />
           </Card>
 
           {data.getPost.comments.length > 0 ? (
             <Card
-              sx={{
-                backgroundColor: light,
-                margin: "0 150px",
-                marginTop: "15px",
-                marginBottom: "10px",
-                padding: 2,
-                borderRadius: "16px",
-                color: white,
-              }}
+              // sx={{
+              //   backgroundColor: light,
+              //   margin: "0 150px",
+              //   marginTop: "15px",
+              //   marginBottom: "10px",
+              //   padding: 2,
+              //   borderRadius: "16px",
+              //   color: white,
+              // }}
             >
               {data.getPost.comments &&
                 data.getPost.comments.map((comment: Comment, i: number) => (
@@ -106,15 +106,15 @@ const PostPage = () => {
             </Card>
           ) : (
             <Card
-              sx={{
-                backgroundColor: light,
-                margin: "0 150px",
-                marginTop: "15px",
-                marginBottom: "10px",
-                padding: 2,
-                borderRadius: "16px",
-                color: white,
-              }}
+              // sx={{
+              //   backgroundColor: light,
+              //   margin: "0 150px",
+              //   marginTop: "15px",
+              //   marginBottom: "10px",
+              //   padding: 2,
+              //   borderRadius: "16px",
+              //   color: white,
+              // }}
             >
               <p>There are no comments yet...</p>
             </Card>

@@ -21,9 +21,9 @@ const DeleteAccount = () => {
   return (
     <div>
       <Button
-        sx={{
-          backgroundColor: "red",
-        }}
+        // sx={{
+        //   backgroundColor: "red",
+        // }}
         variant="contained"
         onClick={() => handleDeleteAccount()}
       >

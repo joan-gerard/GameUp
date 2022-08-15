@@ -10,9 +10,9 @@ const LoggedInMenu = () => {
       {user && (
         <>
           <Button
-            sx={{
-              marginLeft: 2,
-            }}
+            // sx={{
+            //   marginLeft: 2,
+            // }}
             variant="outlined"
             onClick={logout}
           >

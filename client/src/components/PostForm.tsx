@@ -54,9 +54,9 @@ const PostForm = () => {
             <h2>Write a post</h2>
             <div className="post-form__input">
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Message*"
                 variant="outlined"
@@ -68,9 +68,9 @@ const PostForm = () => {
               />
               {/* <GameListSelect /> */}
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Game"
                 variant="outlined"

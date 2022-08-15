@@ -56,9 +56,9 @@ const Login = () => {
             <h2>Welcome back...</h2>
             <div className="login-form__input">
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Username*"
                 variant="outlined"
@@ -69,9 +69,9 @@ const Login = () => {
                 onChange={onChange}
               />
               <TextField
-                sx={{
-                  marginBottom: 0.5,
-                }}
+                // sx={{
+                //   marginBottom: 0.5,
+                // }}
                 id="outlined-basic"
                 label="Password*"
                 variant="outlined"

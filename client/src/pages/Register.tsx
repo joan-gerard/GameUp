@@ -52,9 +52,9 @@ const Register = () => {
             <h2>Sign up to...</h2>
             <div className="login-form__input">
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Username*"
                 variant="outlined"
@@ -66,9 +66,9 @@ const Register = () => {
               />
 
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Email*"
                 variant="outlined"
@@ -80,9 +80,9 @@ const Register = () => {
               />
 
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Password*"
                 variant="outlined"
@@ -94,9 +94,9 @@ const Register = () => {
               />
 
               <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
+                // sx={{
+                //   marginBottom: 2,
+                // }}
                 id="outlined-basic"
                 label="Confirm Password*"
                 variant="outlined"

@@ -1,4 +1,4 @@
-.c-white {
+/* .c-white {
   color: white;
 }
 
@@ -23,7 +23,6 @@
   background-color: red;
 }
 
-/* width */
 .w-1 {
   width: 0.25em;
 }
@@ -55,7 +54,6 @@
   width: 2.50em;
 }
 
-/* height */
 .h-1 {
   height: 0.25em;
 }
@@ -87,11 +85,9 @@
   height: 2.50em;
 }
 
-/* padding */
 .p-8 {
   padding: 2em;
 }
-/* margin */
 .m-8 {
   margin: 2em;
-}
+} */

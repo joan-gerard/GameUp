@@ -1,7 +1,7 @@
 import React from "react";
 import UserAccount from "./UserAccount";
 import UserSettings from "./UserSettings";
-import "./userComponents.css";
+// import "./userComponents.css";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import DeleteAccount from "./DeleteAccount";
 
@@ -22,10 +22,10 @@ const UserProfile = () => {
     >
       <div id="user-profile__nav" className="column">
         <ToggleButtonGroup
-          sx={{
-            backgroundColor: "white",
-            margin: 2,
-          }}
+          // sx={{
+          //   backgroundColor: "white",
+          //   margin: 2,
+          // }}
           orientation="vertical"
           value={userProfileView}
           exclusive
