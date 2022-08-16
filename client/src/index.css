@@ -121,6 +121,7 @@ input,
 button {
   background: none;
   border: none;
+  outline: none;
   font: var(--ff-oxanium);
   font-weight: var(--fw-600);
   color: var(--white);
@@ -218,7 +219,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  transform: skewX(var(--skewX, -26deg));
+  transform: skewX(var(--skewX, -16deg));
   background-color: var(--bg, var(--marigold));
   z-index: -1;
 }
@@ -441,6 +442,88 @@ body {
   height: 90vh;
 }
 
+.login-form-container {
+  /* opacity: 0; */
+  display: flex;
+  flex-direction: column;
+  padding: 7rem;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.login-form {
+  background-color: var(--eerie-black-2);
+  min-height: 200px;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* visibility: hidden; */
+}
+
+.login-form h2 {
+  margin: 1rem 0 2rem 0;
+}
+
+.login-form__inputs-wrapper {
+display: flex;
+flex-direction: column;
+/* justify-content: center; */
+}
+.login-form input {
+  /* border: 1px solid var(--english-violet); */
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.input-field {
+  background-color: var(--raisin-black-4);
+  padding: 12px 20px;
+  padding-inline-end: 60px;
+  font-size: var(--fs-9);
+  color: var(--white);
+}
+
+.show-password__toggle__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--white);
+}
+
+.submit-btn {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skewX(var(--skewX, -16deg));
+  background-color: var(--bg, var(--marigold));
+  z-index: -1;
+}
+
+.login-submit-btn {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: center;
+  margin: 0 6rem;
+}
+.login-submit-btn span {
+  margin-right: 0.8rem;
+}
+
+.login-submit-btn:hover {
+  position: relative;
+  z-index: 1;
+}
+.login-submit-btn:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skewX(var(--skewX, -16deg));
+  background-color: var(--bg, var(--marigold));
+  z-index: -1;
+}
 /*-----------------------------------*\
   #LOGIN - end
 \*-----------------------------------*/
@@ -480,5 +563,9 @@ body {
   .navbar.active {
     all: unset;
     /* margin-inline: auto 15px; */
+  }
+
+  .login-form {
+    max-width: 433px;
   }
 }

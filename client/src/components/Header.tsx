@@ -31,12 +31,16 @@ const navbarToggler: any = document.querySelector("[data-nav-toggler]");
 export default function Header() {
   const { user, logout } = useAuthContext();
   const [togglerIsActive, setTogglerIsActive] = useState(false);
+  const [loginFormIsActive, setLoginFormIsActive] = useState(false);
 
   const navigate = useNavigate();
   const navgiateToUserProfile = () => {};
 
   const handleToggler = () => {
     setTogglerIsActive(!togglerIsActive);
+  };
+  const handleShowLoginForm = () => {
+    setLoginFormIsActive(!loginFormIsActive);
   };
 
   console.log(togglerIsActive);
@@ -73,7 +77,7 @@ export default function Header() {
             <ul className="navbar-list">
               <li className="navbar-item">
                 <Link to="login" className="navbar-link" data-nav-link>
-                  <button>LOGIN</button>
+                  <button onClick={handleShowLoginForm}>LOGIN</button>
                 </Link>
               </li>
 
