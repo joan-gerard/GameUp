@@ -539,6 +539,11 @@ select:-webkit-autofill:focus {
   background-color: var(--bg, var(--marigold));
   z-index: -1;
 }
+
+.error-msg {
+  color: red;
+  margin: 0.5rem 0;
+}
 /*-----------------------------------*\
   #LOGIN #REGISTER pages and forms - end
 \*-----------------------------------*/

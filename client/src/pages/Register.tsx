@@ -7,6 +7,7 @@ import { useUserForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
 import { Button, TextField } from "@mui/material";
 import { FaEye, FaEyeSlash, FaWpforms } from "react-icons/fa";
+import { toggleShowPassword } from "../utils/helpers";
 
 const Register = () => {
   const context = useAuthContext();
@@ -40,14 +41,14 @@ const Register = () => {
     addUser();
   }
 
-  const toggleShowPassword = () => {
-    console.log("clicked");
-    if (passwordIsShowing === true) {
-      setPasswordIsShowing(false);
-    } else {
-      setPasswordIsShowing(true);
-    }
-  };
+  // const toggleShowPassword = () => {
+  //   console.log("clicked");
+  //   if (passwordIsShowing === true) {
+  //     setPasswordIsShowing(false);
+  //   } else {
+  //     setPasswordIsShowing(true);
+  //   }
+  // };
 
   // const handleSubmitRegister = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
@@ -101,7 +102,14 @@ const Register = () => {
                   onChange={onChange}
                 />
                 <div className="show-password__toggle__wrapper">
-                  <div onClick={toggleShowPassword}>
+                  <div
+                    onClick={() =>
+                      toggleShowPassword(
+                        passwordIsShowing,
+                        setPasswordIsShowing
+                      )
+                    }
+                  >
                     {passwordIsShowing ? <FaEyeSlash /> : <FaEye />}
                   </div>
                 </div>
@@ -111,16 +119,16 @@ const Register = () => {
                   <FaWpforms />
                 </button>
               </div>
+              {Object.keys(errors).length > 0 && (
+                <div>
+                  {Object.values(errors).map((value: any, i) => (
+                    <p key={i} className="error-msg">
+                      * {value}
+                    </p>
+                  ))}
+                </div>
+              )}
             </form>
-            {Object.keys(errors).length > 0 && (
-              <div>
-                {Object.values(errors).map((value: any, i) => (
-                  <p key={i} className="error-msg">
-                    * {value}
-                  </p>
-                ))}
-              </div>
-            )}
           </>
         )}
       </div>

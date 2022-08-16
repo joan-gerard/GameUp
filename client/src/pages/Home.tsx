@@ -1,7 +1,6 @@
 import React from "react";
 import Collapse from "@mui/material/Collapse";
 import { TransitionGroup } from "react-transition-group";
-import { Container } from "@mui/material";
 import { useQuery } from "@apollo/client";
 
 import { GET_POSTS } from "../graphql/queries";
@@ -20,7 +19,7 @@ const Home = () => {
   // const latestPosts = data.getPosts.slice(0, 5);
 
   return (
-    <Container>
+    <div>
     {/* <Container maxWidth={false} sx={{ backgroundColor: primary }}> */}
       {/* <Games /> */}
       {!loading && !error && (
@@ -38,7 +37,7 @@ const Home = () => {
           <Users />
         </div>
       )}
-    </Container>
+    </div>
   );
 };
 

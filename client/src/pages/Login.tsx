@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
 import { FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
 
 import { useAuthContext } from "../context/auth";
@@ -38,14 +37,14 @@ const Login = () => {
     loginUser();
   }
 
-  const toggleShowPassword = () => {
-    console.log("clicked");
-    if (passwordIsShowing === true) {
-      setPasswordIsShowing(false);
-    } else {
-      setPasswordIsShowing(true);
-    }
-  };
+  // const toggleShowPassword = () => {
+  //   console.log("clicked");
+  //   if (passwordIsShowing === true) {
+  //     setPasswordIsShowing(false);
+  //   } else {
+  //     setPasswordIsShowing(true);
+  //   }
+  // };
 
   console.log(passwordIsShowing);
 
@@ -62,7 +61,7 @@ const Login = () => {
               <div className="login-form__inputs-wrapper">
                 <input
                   type="text"
-                  placeholder="username"
+                  placeholder="*username"
                   name="username"
                   className="input-field"
                   // value={values.username}
@@ -70,7 +69,7 @@ const Login = () => {
                 />
                 <input
                   type={passwordInputType}
-                  placeholder="password"
+                  placeholder="*password"
                   name="password"
                   className="input-field"
                   // value={values.password}
@@ -78,7 +77,14 @@ const Login = () => {
                 />
 
                 <div className="show-password__toggle__wrapper">
-                  <div onClick={toggleShowPassword}>
+                  <div
+                    onClick={() =>
+                      toggleShowPassword(
+                        passwordIsShowing,
+                        setPasswordIsShowing
+                      )
+                    }
+                  >
                     {passwordIsShowing ? <FaEyeSlash /> : <FaEye />}
                   </div>
                 </div>
@@ -89,16 +95,16 @@ const Login = () => {
                   {/* <ion-icon name="paper-plane" aria-hidden="true"></ion-icon> */}
                 </button>
               </div>
+              {Object.keys(errors).length > 0 && (
+                <div>
+                  {Object.values(errors).map((value: any, i) => (
+                    <p key={i} className="error-msg">
+                      * {value}
+                    </p>
+                  ))}
+                </div>
+              )}
             </form>
-            {Object.keys(errors).length > 0 && (
-              <div>
-                {Object.values(errors).map((value: any, i) => (
-                  <p key={i} className="error-msg">
-                    * {value}
-                  </p>
-                ))}
-              </div>
-            )}
           </>
         )}
       </div>
