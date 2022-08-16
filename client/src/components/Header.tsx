@@ -49,7 +49,7 @@ export default function Header() {
     <header className="header skewBg" data-header>
       <div className="container">
         {/* <img src={logo} alt="logo" onClick={() => navigate("/")} /> */}
-        <a href="#" className="logo">
+        <a onClick={() => navigate("/")} className="logo">
           GameUp
         </a>
 
