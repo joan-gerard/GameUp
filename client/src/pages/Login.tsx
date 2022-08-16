@@ -39,7 +39,7 @@ const Login = () => {
   }
 
   const toggleShowPassword = () => {
-    console.log('clicked')
+    console.log("clicked");
     if (passwordIsShowing === true) {
       setPasswordIsShowing(false);
     } else {
@@ -47,7 +47,7 @@ const Login = () => {
     }
   };
 
-  console.log(passwordIsShowing)
+  console.log(passwordIsShowing);
 
   if (loading) return <p>Loading...</p>;
 
@@ -60,26 +60,22 @@ const Login = () => {
             <form className="login-form" onSubmit={onSubmit}>
               <h2 className="h2">Welcome back...</h2>
               <div className="login-form__inputs-wrapper">
-                <div className="input-wrapper">
-                  <input
-                    type="text"
-                    placeholder="username"
-                    name="username"
-                    className="input-field"
-                    // value={values.username}
-                    onChange={onChange}
-                  />
-                </div>
-                <div className="input-wrapper">
-                  <input
-                    type={passwordInputType}
-                    placeholder="password"
-                    name="password"
-                    className="input-field"
-                    // value={values.password}
-                    onChange={onChange}
-                  />
-                </div>
+                <input
+                  type="text"
+                  placeholder="username"
+                  name="username"
+                  className="input-field"
+                  // value={values.username}
+                  onChange={onChange}
+                />
+                <input
+                  type={passwordInputType}
+                  placeholder="password"
+                  name="password"
+                  className="input-field"
+                  // value={values.password}
+                  onChange={onChange}
+                />
 
                 <div className="show-password__toggle__wrapper">
                   <div onClick={toggleShowPassword}>

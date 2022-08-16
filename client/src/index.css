@@ -429,7 +429,7 @@ body {
   #HEADER - end
 \*-----------------------------------*/
 /*-----------------------------------*\
-  #LOGIN - start
+  #LOGIN #REGISTER pages and forms - start
 \*-----------------------------------*/
 
 .login-page,
@@ -442,16 +442,16 @@ body {
   height: 90vh;
 }
 
-.login-form-container {
-  /* opacity: 0; */
+.login-form-container,
+.register-form-container {
   display: flex;
   flex-direction: column;
-  padding: 7rem;
-  align-items: center;
-  /* justify-content: center; */
+  padding: 7rem 5rem;
+  /* align-items: center; */
 }
 
-.login-form {
+.login-form,
+.register-form {
   background-color: var(--eerie-black-2);
   min-height: 200px;
   padding: 2rem;
@@ -459,21 +459,20 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  /* visibility: hidden; */
 }
 
-.login-form h2 {
+.login-form h2,
+.register-form h2 {
   margin: 1rem 0 2rem 0;
 }
 
-.login-form__inputs-wrapper {
-display: flex;
-flex-direction: column;
-/* justify-content: center; */
+.login-form__inputs-wrapper,
+.register-form__inputs-wrapper {
+  display: flex;
+  flex-direction: column;
 }
-.login-form input {
-  /* border: 1px solid var(--english-violet); */
+.login-form input,
+.register-form input {
   padding: 1rem;
   margin: 0.5rem 0;
 }
@@ -492,31 +491,26 @@ flex-direction: column;
   color: var(--white);
 }
 
-.submit-btn {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: skewX(var(--skewX, -16deg));
-  background-color: var(--bg, var(--marigold));
-  z-index: -1;
-}
-
-.login-submit-btn {
+.login-submit-btn,
+.register-submit-btn {
   display: flex;
   align-items: center;
   padding: 1rem;
   justify-content: center;
   margin: 0 6rem;
 }
-.login-submit-btn span {
+.login-submit-btn span,
+.register-submit-btn span {
   margin-right: 0.8rem;
 }
 
-.login-submit-btn:hover {
+.login-submit-btn:hover,
+.register-submit-btn:hover {
   position: relative;
   z-index: 1;
 }
-.login-submit-btn:hover::before {
+.login-submit-btn:hover::before,
+.register-submit-btn:hover::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -525,7 +519,7 @@ flex-direction: column;
   z-index: -1;
 }
 /*-----------------------------------*\
-  #LOGIN - end
+  #LOGIN #REGISTER pages and forms - end
 \*-----------------------------------*/
 
 @media (min-width: 576px) {
@@ -565,7 +559,13 @@ flex-direction: column;
     /* margin-inline: auto 15px; */
   }
 
-  .login-form {
-    max-width: 433px;
+  .login-form-container,
+  .register-form-container {
+    align-items: center;
+  }
+
+  .login-form,
+  .register-form {
+    width: 475px;
   }
 }
