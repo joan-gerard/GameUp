@@ -160,7 +160,7 @@ body {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -208,11 +208,16 @@ select:-webkit-autofill:focus {
 }
 
 .h1,
-.h2,
-.h3 {
+.h2 {
   color: var(--white);
   font-family: var(--ff-oxanium);
   font-weight: var(--fw-800);
+  line-height: 1;
+}
+.h3 {
+  color: var(--white);
+  font-family: var(--ff-oxanium);
+  font-weight: var(--fw-600);
   line-height: 1;
 }
 
@@ -226,7 +231,7 @@ select:-webkit-autofill:focus {
 }
 
 .h3 {
-  font-size: var(--fs-6);
+  font-size: var(--fs-8);
   text-transform: uppercase;
 }
 
@@ -385,8 +390,6 @@ select:-webkit-autofill:focus {
   background-color: var(--raisin-black-2);
   padding-block: 15px;
   z-index: 4;
-
-  
 }
 
 .header::before {
@@ -435,15 +438,22 @@ select:-webkit-autofill:focus {
   padding: 10px 25px;
   transition: var(--transition);
 }
+.navbar-link a {
+  transition: transform 0.8s ease;
+  display: flex;
+}
 
 .navbar-link:is(:hover, :focus) {
   background-color: var(--white_10);
+}
+.navbar-link:is(:hover, :focus) a {
+  transform: translateX(1rem);
 }
 
 .navbar-list {
   display: flex;
   flex-direction: column;
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 /* Toggling */
@@ -455,6 +465,17 @@ select:-webkit-autofill:focus {
   padding: 4px;
   height: 40px;
   display: flex;
+}
+
+hr.hr-style {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    var(--marigold),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 /* .nav-toggle-btn.active .menu,
@@ -475,7 +496,9 @@ select:-webkit-autofill:focus {
 \*-----------------------------------*/
 
 .login-page,
-.register-page {
+.register-page,
+.profile-page,
+.settings-page {
   background-image: url("./components/assets/hero-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -501,7 +524,7 @@ select:-webkit-autofill:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: 50%
+  top: 50%;
 }
 
 .login-form h2,
@@ -570,6 +593,34 @@ select:-webkit-autofill:focus {
   #LOGIN #REGISTER pages and forms - end
 \*-----------------------------------*/
 
+/*-----------------------------------*\
+  #PROFILE page - start
+\*-----------------------------------*/
+
+.profile-page {
+  padding: 1rem;
+}
+
+.profile-page-container {
+  background-color: var(--eerie-black-2);
+  padding: 1rem;
+  border-radius: 9px;
+}
+
+.profile-header {
+
+}
+
+.profile-header .collapsible {
+  background-color: red;
+  transition: height 2s ease-in-out;
+
+}
+
+/*-----------------------------------*\
+  #PROFILE page - end
+\*-----------------------------------*/
+
 @media (min-width: 576px) {
   .navbar-link:hover {
     position: relative;
@@ -588,7 +639,6 @@ select:-webkit-autofill:focus {
     z-index: -1;
   }
 
-  
   .skewBg {
     position: relative;
     z-index: 1;
@@ -618,7 +668,6 @@ select:-webkit-autofill:focus {
     flex-direction: row;
     /* justify-content: space-around */
   }
-  
 
   .login-form-container,
   .register-form-container {

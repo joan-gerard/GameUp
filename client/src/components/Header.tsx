@@ -1,32 +1,10 @@
-import { useAuthContext } from "../context/auth";
-import logo from "./assets/logo-transparent.png";
-import avatar from "./assets/avatar.png";
-import LoggedInMenu from "./LoggedInMenu";
-import LoggedOutMenu from "./LoggedOutMenu";
-import "./componentStyles.css";
-import CustomizedInputBase from "./SearchBar";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { capitalizeFirstLetter, UrlExists } from "../utils/helpers";
-import { IoCloseOutline, IoMenuOutline, IoCloseSharp, IoAlarmOutline } from "react-icons/io5";
+import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 
 import "../global.css";
-import { useState } from "react";
-
-const navbar: any = document.querySelector("[data-navbar]");
-const navbarLinks = document.querySelectorAll("[data-nav-link]");
-const navbarToggler: any = document.querySelector("[data-nav-toggler]");
-
-// navbarToggler.addEventListener("click", function () {
-//   navbar.classList.toggle("active");
-//   this.classList.toggle("active");
-// });
-
-// for (let i = 0; i < navbarLinks.length; i++) {
-//   navbarLinks[i].addEventListener("click", function () {
-//     navbar.classList.remove("active");
-//     navbarToggler.classList.remove("active");
-//   });
-// }
+import { useAuthContext } from "../context/auth";
+import { capitalizeFirstLetter, UrlExists } from "../utils/helpers";
 
 export default function Header() {
   const { user, logout } = useAuthContext();
@@ -53,11 +31,11 @@ export default function Header() {
           GameUp
         </a>
 
-        {user && (
+        {/* {user && (
           <p className="user-greeting">
             Hi, {capitalizeFirstLetter(user?.username)}
           </p>
-        )}
+        )} */}
 
         {/* {user && <CustomizedInputBase />} */}
 
@@ -68,22 +46,40 @@ export default function Header() {
           {user ? (
             <li className="navbar-item">
               {user && (
-                <>
-                  <button onClick={logout}>Logout</button>
-                </>
+                <ul className="navbar-list">
+                  <li className="navbar-link">
+                    <a href={`/user/${user.username}`}>
+                      <h3 className="h3">My Profile</h3>
+                    </a>
+                  </li>
+                  <hr className="hr-style" />
+                  <li className="navbar-link">
+                    <a href={`/user/${user.username}/settings`}>
+                      <h3 className="h3">My Account</h3>
+                    </a>
+                  </li>
+                  <li className="navbar-link">
+                    <h3 className="h3" onClick={logout}>
+                      <span></span>
+                      Logout
+                    </h3>
+                  </li>
+                </ul>
               )}
             </li>
           ) : (
             <ul className="navbar-list">
-              <li className="navbar-item">
-                <Link to="login" className="navbar-link" data-nav-link>
-                  <button onClick={handleShowLoginForm}>LOGIN</button>
+              <li className="navbar-link">
+                <Link to="login" data-nav-link>
+                  <h3 className="h3" onClick={handleShowLoginForm}>
+                    LOGIN
+                  </h3>
                 </Link>
               </li>
 
-              <li className="navbar-item">
-                <Link to="register" className="navbar-link" data-nav-link>
-                  <button>REGISTER</button>
+              <li className="navbar-link">
+                <Link to="register" data-nav-link>
+                  <h3 className="h3">REGISTER</h3>
                 </Link>
               </li>
             </ul>

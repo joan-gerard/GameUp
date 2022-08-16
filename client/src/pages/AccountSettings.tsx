@@ -1,26 +1,18 @@
 import React from "react";
-import UserAccount from "./UserAccount";
-import UserSettings from "./UserSettings";
-// import "./userComponents.css";
-import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import DeleteAccount from "./DeleteAccount";
 
-const UserProfile = () => {
-  const [userProfileView, setUserProfileView] = React.useState("account");
+const AccountSettings = () => {
+  // const [userProfileView, setUserProfileView] = React.useState("account");
 
-  const handleViewChange = (
-    event: React.MouseEvent<HTMLElement>,
-    nextView: string
-  ) => {
-    setUserProfileView(nextView);
-  };
+  // const handleViewChange = (
+  //   event: React.MouseEvent<HTMLElement>,
+  //   nextView: string
+  // ) => {
+  //   setUserProfileView(nextView);
+  // };
 
   return (
-    <div
-      className="c-white m-8 p-8 user-profile-layout"
-      id="user-profile__container"
-    >
-      <div id="user-profile__nav" className="column">
+    <div className="settings-page">
+      {/* <div id="user-profile__nav" className="column">
         <ToggleButtonGroup
           // sx={{
           //   backgroundColor: "white",
@@ -50,9 +42,9 @@ const UserProfile = () => {
         ) : (
           <DeleteAccount />
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default UserProfile;
+export default AccountSettings;

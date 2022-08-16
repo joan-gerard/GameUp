@@ -14,7 +14,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import PostPage from "../pages/PostPage";
 import GameDashboard from "../admin/GameDashboard";
-import UserProfile from "../components/userComponents/UserProfile";
+import UserProfile from "../pages/UserProfile";
+import AccountSettings from "../pages/AccountSettings";
 
 function Redirect({ to }: RedirectProps) {
   let navigate = useNavigate();
@@ -46,6 +47,7 @@ const AuthRoute = () => {
           />
           <Route path="/post/:id" element={user ? <PostPage />: <Redirect to="/login" />} />
           <Route path="/user/:username" element={user ? <UserProfile />: <Redirect to="/login" />} />
+          <Route path="/user/:username/settings" element={user ? <AccountSettings />: <Redirect to="/login" />} />
           {user?.email === "admin@mail.com" && (
             <Route path="/gameDB" element={<GameDashboard />} />
           )}
