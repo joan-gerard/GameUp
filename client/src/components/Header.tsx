@@ -7,7 +7,7 @@ import "./componentStyles.css";
 import CustomizedInputBase from "./SearchBar";
 import { useNavigate, Link } from "react-router-dom";
 import { capitalizeFirstLetter, UrlExists } from "../utils/helpers";
-import { IoCloseOutline, IoMenuOutline, IoCloseSharp } from "react-icons/io5";
+import { IoCloseOutline, IoMenuOutline, IoCloseSharp, IoAlarmOutline } from "react-icons/io5";
 
 import "../global.css";
 import { useState } from "react";
@@ -96,7 +96,7 @@ export default function Header() {
           onClick={handleToggler}
         >
           {togglerIsActive ? (
-            <IoCloseSharp className="close"></IoCloseSharp>
+            <IoCloseOutline className="close"></IoCloseOutline>
           ) : (
             <IoMenuOutline className="menu"></IoMenuOutline>
           )}

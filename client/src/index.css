@@ -347,8 +347,10 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--raisin-black-2);
-  padding-block: 20px;
+  padding-block: 15px;
   z-index: 4;
+
+  
 }
 
 .header::before {
@@ -389,7 +391,7 @@ body {
 
 .navbar.active {
   visibility: visible;
-  max-height: 275px;
+  max-height: 375px;
   transition-duration: 0.5s;
 }
 
@@ -404,6 +406,8 @@ body {
 
 .navbar-list {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around
 }
 
 /* Toggling */
@@ -413,9 +417,11 @@ body {
   font-size: 30px;
   border: 1px solid var(--white);
   padding: 4px;
+  height: 40px;
+  display: flex;
 }
 
-.nav-toggle-btn.active .menu,
+/* .nav-toggle-btn.active .menu,
 .nav-toggle-btn .close {
   display: none;
 }
@@ -423,7 +429,7 @@ body {
 .nav-toggle-btn .menu,
 .nav-toggle-btn.active .close {
   display: block;
-}
+} */
 
 /*-----------------------------------*\
   #HEADER - end
@@ -459,6 +465,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  top: 50%
 }
 
 .login-form h2,
@@ -558,6 +565,13 @@ body {
     all: unset;
     /* margin-inline: auto 15px; */
   }
+
+  .navbar-list {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around */
+  }
+  
 
   .login-form-container,
   .register-form-container {
