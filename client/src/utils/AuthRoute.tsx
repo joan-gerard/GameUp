@@ -16,6 +16,7 @@ import PostPage from "../pages/PostPage";
 import GameDashboard from "../admin/GameDashboard";
 import UserProfile from "../pages/UserProfile";
 import AccountSettings from "../pages/AccountSettings";
+import Footer from "../components/Footer";
 
 function Redirect({ to }: RedirectProps) {
   let navigate = useNavigate();
@@ -31,7 +32,7 @@ const AuthRoute = () => {
   return (
     <Router>
       <Header />
-      <main>
+      <main className="main-content">
         <Routes>
           <Route
             path="/"
@@ -45,15 +46,25 @@ const AuthRoute = () => {
             path="/register"
             element={user ? <Redirect to="/" /> : <Register />}
           />
-          <Route path="/post/:id" element={user ? <PostPage />: <Redirect to="/login" />} />
-          <Route path="/user/:username" element={user ? <UserProfile />: <Redirect to="/login" />} />
-          <Route path="/user/:username/settings" element={user ? <AccountSettings />: <Redirect to="/login" />} />
+          <Route
+            path="/post/:id"
+            element={user ? <PostPage /> : <Redirect to="/login" />}
+          />
+          <Route
+            path="/user/:username"
+            element={user ? <UserProfile /> : <Redirect to="/login" />}
+          />
+          <Route
+            path="/user/:username/settings"
+            element={user ? <AccountSettings /> : <Redirect to="/login" />}
+          />
           {user?.email === "admin@mail.com" && (
             <Route path="/gameDB" element={<GameDashboard />} />
           )}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      {user && <Footer />}
     </Router>
   );
 };

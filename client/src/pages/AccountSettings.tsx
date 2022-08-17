@@ -1,4 +1,5 @@
 import React from "react";
+import UserSettings from "../components/userProfile/UserSettings";
 
 const AccountSettings = () => {
   // const [userProfileView, setUserProfileView] = React.useState("account");
@@ -12,6 +13,7 @@ const AccountSettings = () => {
 
   return (
     <div className="settings-page">
+      <UserSettings />
       {/* <div id="user-profile__nav" className="column">
         <ToggleButtonGroup
           // sx={{

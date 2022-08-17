@@ -87,6 +87,8 @@
 \*-----------------------------------*/
 
 *,
+html,
+body,
 *::before,
 *::after {
   margin: 0;
@@ -113,9 +115,9 @@ ion-icon {
   display: block;
 }
 
-img {
+/* img {
   height: auto;
-}
+} */
 
 input,
 button {
@@ -147,6 +149,7 @@ html {
   font-family: var(--ff-poppins);
   font-size: 10px;
   scroll-behavior: smooth;
+  padding: 1px;
 }
 
 body {
@@ -377,14 +380,42 @@ select:-webkit-autofill:focus {
 }
 
 /*-----------------------------------*\
+  #root id - start
+\*-----------------------------------*/
+#root {
+  display: grid;
+  grid-template-rows: 70px 1fr 50px;
+  grid-template-columns: 1fr;
+  height: 100vh;
+}
+
+.header {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+
+.main-content {
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
+}
+
+.footer {
+  grid-row: 3 / 4;
+  grid-column: 1 / -1;
+}
+/*-----------------------------------*\
+  #root id - start
+\*-----------------------------------*/
+
+/*-----------------------------------*\
   #HEADER - start
 \*-----------------------------------*/
 
 .header {
   /* position: relative;
   min-height: 1px; */
-  position: relative;
-  top: calc(100% - 1px);
+  /* position: relative;
+  top: calc(100% - 1px); */
   left: 0;
   width: 100%;
   background-color: var(--raisin-black-2);
@@ -497,7 +528,6 @@ hr.hr-style {
 
 .login-page,
 .register-page,
-.profile-page,
 .settings-page {
   background-image: url("./components/assets/hero-bg.jpg");
   background-repeat: no-repeat;
@@ -598,27 +628,143 @@ hr.hr-style {
 \*-----------------------------------*/
 
 .profile-page {
+  background-color: var(--raisin-black-2);
+  height: 100%;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-rows: 15rem 6rem 6rem 1fr;
+  grid-template-columns: 1fr;
+}
+
+.profile-banner {
+  grid-row: 1 / 3;
+  grid-column: 1 / -1;
+}
+
+.profile-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-picture {
+  grid-row: 2 / 4;
+  grid-column: 1 / -1;
+  padding: 0 var(--fs-8);
+  z-index: 1;
+}
+.profile-picture img {
+  height: 100%;
+  aspect-ratio: 1/ 1;
+}
+
+.profile-content {
+  grid-row: 4 / 5;
+  grid-column: 1 / -1;
+  padding: var(--fs-8);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.username {
+}
+.follow-counts {
+  display: flex;
+  justify-content: flex-start;
+}
+.follow-counts li {
+  margin-right: 2rem;
+}
+.follow-counts li p {
+  color: var(--roman-silver);
+}
+
+.socials {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.socials a {
+  margin-right: var(--fs-8);
+}
+
+.social-logo {
   padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 9999px;
 }
 
-.profile-page-container {
-  background-color: var(--eerie-black-2);
-  padding: 1rem;
-  border-radius: 9px;
+.steam {
+  background-color: black;
+}
+.twitch {
+  background-color: #9146ff;
+}
+.twitter {
+  background-color: #00acee;
+}
+.facebook {
+  background-color: #4267b2;
 }
 
-.profile-header {
-
+.user-activities__counts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.profile-header .collapsible {
-  background-color: red;
-  transition: height 2s ease-in-out;
+.user-activities__counts__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+}
+.user-activities__counts__item p {
+  color: var(--roman-silver);
+  margin-left: 1rem;
+}
 
+.user-activities__details {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
 /*-----------------------------------*\
   #PROFILE page - end
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  #FOOTER - start
+\*-----------------------------------*/
+
+.footer {
+  background-color: var(--eerie-black-2);
+  color: var(--roman-silver);
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  margin: auto;
+  font-size: var(--fs-9);
+}
+/*-----------------------------------*\
+  #FOOTER - end
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  @media - below
 \*-----------------------------------*/
 
 @media (min-width: 576px) {
@@ -679,3 +825,20 @@ hr.hr-style {
     width: 475px;
   }
 }
+
+@media (min-width: 650px) {
+  .profile-content {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 250px 1fr;
+  }
+
+  .user-activities__counts__item {
+    padding: 0.5rem 2.5rem;
+  }
+  
+}
+/* display: grid;
+grid-template-rows: 15rem 6rem 6rem 1fr;
+grid-template-columns: 1fr;
+background-color: red !important; */

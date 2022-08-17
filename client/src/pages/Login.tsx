@@ -6,7 +6,6 @@ import { FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
 import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { LOGIN_USER } from "../graphql/mutations";
-import "./styles/login.css";
 import { toggleShowPassword } from "../utils/helpers";
 import "../App.css";
 
@@ -24,10 +23,12 @@ const Login = () => {
 
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(_, result) {
+
       context.login(result.data.login);
       navigate("/");
     },
     onError(err) {
+      alert(err)
       setErrors(err.graphQLErrors[0].extensions.errors);
     },
     variables: values,
@@ -45,8 +46,6 @@ const Login = () => {
   //     setPasswordIsShowing(true);
   //   }
   // };
-
-  console.log(passwordIsShowing);
 
   if (loading) return <p>Loading...</p>;
 

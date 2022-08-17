@@ -21,8 +21,6 @@ export default function Header() {
     setLoginFormIsActive(!loginFormIsActive);
   };
 
-  console.log(togglerIsActive);
-
   return (
     <header className="header skewBg" data-header>
       <div className="container">
@@ -47,17 +45,17 @@ export default function Header() {
             <li className="navbar-item">
               {user && (
                 <ul className="navbar-list">
-                  <li className="navbar-link">
-                    <a href={`/user/${user.username}`}>
+                  <a href={`/user/${user.username}`}>
+                    <li className="navbar-link">
                       <h3 className="h3">My Profile</h3>
-                    </a>
-                  </li>
+                    </li>
+                  </a>
                   <hr className="hr-style" />
-                  <li className="navbar-link">
-                    <a href={`/user/${user.username}/settings`}>
+                  <a href={`/user/${user.username}/settings`}>
+                    <li className="navbar-link">
                       <h3 className="h3">My Account</h3>
-                    </a>
-                  </li>
+                    </li>
+                  </a>
                   <li className="navbar-link">
                     <h3 className="h3" onClick={logout}>
                       <span></span>
