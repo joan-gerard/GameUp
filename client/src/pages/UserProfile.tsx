@@ -34,7 +34,8 @@ const UserProfile = () => {
     <div className="profile-page">
       <div className="profile-card">
         <div className="profile-picture">
-          <img alt="profile"
+          <img
+            alt="profile"
             src={
               !user?.profileImageUrl
                 ? avatar
@@ -42,7 +43,6 @@ const UserProfile = () => {
                 ? user.profileImageUrl
                 : avatar
             }
-            style={{ borderRadius: "9999px" }}
           />
           {/* <button onClick={() => setShowAboutMe(!showAboutMe)}>About me</button>
           {showAboutMe && <h2 className="collapsible">This is about me</h2>}

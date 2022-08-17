@@ -1,16 +1,19 @@
 import { useMutation } from "@apollo/client";
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { FaRegWindowClose } from "react-icons/fa";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 import { useAuthContext } from "../context/auth";
 import { CREATE_POST } from "../graphql/mutations";
 import { GET_POSTS } from "../graphql/queries";
 import { usePostForm } from "../utils/hooks";
+import close_icon from "../components/assets/icons8-close.svg";
 // import GameListSelect from "./GameListSelect";
 
-const PostForm = () => {
+const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
   const { user } = useAuthContext();
-  const [errors, setErrors] = useState<string>("");
+  const [errors, setErrors] = useState<string | null>(null);
 
   const { values, onChange, onSubmit } = usePostForm(createPostCb, setErrors, {
     body: "",
@@ -33,103 +36,66 @@ const PostForm = () => {
         });
         values.body = "";
       }
+      setPostFormIsShowing(false);
+
     },
 
     onError(err) {
       setErrors(err.graphQLErrors[0].message);
     },
   });
-
   function createPostCb() {
     createPost();
   }
+  console.log('PostForm')
 
   if (loading) return <p>Posting...</p>;
 
   return (
-    <>
-      {user && (
-        <div className="post-form">
-          <form onSubmit={onSubmit}>
-            <h2>Write a post</h2>
-            <div className="post-form__input">
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
-                id="outlined-basic"
-                label="Message*"
-                variant="outlined"
-                size="medium"
-                type="text"
-                name="body"
-                value={values.body}
-                onChange={onChange}
-              />
-              {/* <GameListSelect /> */}
-              <TextField
-                // sx={{
-                //   marginBottom: 2,
-                // }}
-                id="outlined-basic"
-                label="Game"
-                variant="outlined"
-                size="medium"
-                type="text"
-                name="game"
-                value={values.game}
-                onChange={onChange}
-              />
-              {/* <FormControl sx={{ marginBottom: 2 }}>
-                <InputLabel id="demo-simple-select-helper-label">
-                  Age
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl> */}
-              <Button variant="contained" color="success" type="submit">
-                Post
-              </Button>
+    <div className="post-component">
+      {/* {user && ( */}
+      <div className="post-form">
+        <form onSubmit={onSubmit}>
+          <div className="post-form__header">
+            <h2 className="h2">Write a post</h2>
+            <div onClick={() => setPostFormIsShowing(false)}>
+              <img src={close_icon} />
             </div>
-            {errors && (
-              <div>
-                <p className="error-msg">* {errors}</p>
-              </div>
-            )}
-          </form>
-        </div>
-      )}
-    </>
+          </div>
+          <div className="post-form__input">
+            <input
+              id="outlined-basic"
+              type="text"
+              name="game"
+              placeholder="select a game... (optional)"
+              className="input-field"
+              value={values.game}
+              onChange={onChange}
+            />
+            <textarea
+              id="outlined-basic"
+              name="body"
+              placeholder="write a post..."
+              className="input-field post-field"
+              style={{ width: "100%" }}
+              value={values.body}
+              onChange={onChange}
+            />
+            <div className="post-form__button-wrapper">
+              <button type="submit" className="post-form__button" disabled={!values.body}>
+                Post
+              </button>
+            </div>
+          </div>
+          {errors && (
+            <div>
+              <p className="error-msg">* {errors}</p>
+            </div>
+          )}
+        </form>
+      </div>
+      {/* )} */}
+    </div>
   );
 };
 

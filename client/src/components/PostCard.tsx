@@ -30,18 +30,9 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       : avatar;
 
   return (
-    <Card
-      // sx={{
-      //   backgroundColor: light,
-      //   margin: "0 15px",
-      //   marginBottom: "10px",
-      //   padding: 2,
-      //   borderRadius: "16px",
-      //   color: white,
-      // }}
-    >
-      <div className="jc-between">
-        <div className="post__user-info">
+    <div className="post-card">
+      <div className="">
+        <div className="">
           {user && (
             <img
               className="avatar"
@@ -50,7 +41,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
               alt="avatar"
             />
           )}
-          <div className="post__username">
+          <div className="">
             <p className="">{post.username}</p>
             <p className="moment-date">
               {moment(post.createdAt).fromNow(false)}
@@ -72,7 +63,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         </div>
         <DeletePostButton post={post} />
       </div>
-    </Card>
+    </div>
   );
 };
 

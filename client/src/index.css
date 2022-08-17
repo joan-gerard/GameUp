@@ -3,7 +3,6 @@
      * colors
      */
 
-  --rich-black-fogra-29_95: hsla(222, 18%, 11%, 0.95);
   --raisin-black-1: hsl(0, 0%, 16%);
   --raisin-black-2: hsl(236, 17%, 17%);
   --raisin-black-3: hsl(280, 11%, 11%);
@@ -15,18 +14,22 @@
   --quick-silver: hsl(0, 1%, 65%);
   --light-gray-1: hsl(0, 0%, 80%);
   --light-gray-2: hsl(0, 2%, 82%);
-  --marigold_75: hsla(42, 99%, 46%, 0.75);
-  --xiketic_90: hsla(280, 37%, 8%, 0.9);
   --cultured-2: hsl(0, 0%, 97%);
   --marigold: hsl(42, 99%, 46%);
   --platinum: hsl(0, 0%, 89%);
   --dim-gray: hsl(0, 0%, 42%);
-  --white_15: hsla(0, 0%, 100%, 0.15);
-  --white_10: hsla(0, 0%, 100%, 0.1);
   --xiketic: hsl(277, 25%, 10%);
   --silver: hsl(0, 0%, 78%);
   --white: hsl(0, 0%, 100%);
   --jet: hsl(236, 13%, 23%);
+
+  --rich-black-fogra-29_95: hsla(222, 18%, 11%, 0.95);
+  --rich-black-fogra-29_25: hsla(222, 18%, 11%, 0.25);
+  --marigold_75: hsla(42, 99%, 46%, 0.75);
+  --xiketic_90: hsla(280, 37%, 8%, 0.9);
+  --white_15: hsla(0, 0%, 100%, 0.15);
+  --white_10: hsla(0, 0%, 100%, 0.1);
+  --dim-gray_25: hsl(0, 0%, 42%, 0.25);
 
   /**
      * typography
@@ -120,6 +123,7 @@ ion-icon {
 } */
 
 input,
+textarea,
 button {
   background: none;
   border: none;
@@ -624,6 +628,179 @@ hr.hr-style {
 \*-----------------------------------*/
 
 /*-----------------------------------*\
+  #HOME - start
+\*-----------------------------------*/
+/* .home-layout {
+  padding: 1rem
+} */
+
+.start-post {
+  display: flex;
+  height: 60px;
+  background-color: var(--raisin-black-2);
+  padding: 1rem;
+  margin: 2rem 1rem;
+  border-radius: 10px;
+}
+
+.start-post img {
+  height: 100%;
+  border-radius: 9999px;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+
+/* .start-post input {
+  background-color: white;
+  border-radius: 9999px;
+} */
+.fake-input {
+  width: 100%;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  background-color: var(--raisin-black-1);
+}
+.fake-input:hover {
+  cursor: pointer;
+}
+.collapsible {
+  background-color: red;
+}
+/*-----------------------------------*\
+  #HOME - end
+\*-----------------------------------*/
+/*-----------------------------------*\
+  #POST FORM - start
+\*-----------------------------------*/
+
+.post-component {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  background-color: var(--dim-gray_25);
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+}
+.post-form {
+  grid-row: 2 / 5;
+  grid-column: 2 / 8;
+
+  background-color: var(--jet);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.post-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.post-form__header h2 {
+  font-size: var(--fs-3);
+}
+.post-form__header div:hover {
+  cursor: pointer;
+}
+
+.post-form__input input,
+.post-form__input textarea {
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+.post-form__input textarea {
+  resize: none;
+}
+
+.post-field {
+  height: 150px;
+}
+
+.post-form__button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 45px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.post-form__button {
+  position: relative;
+  z-index: 1;
+  grid-row: 1 / 2;
+  grid-column: 6 / 7;
+}
+
+.post-form__button[disabled] {
+  color: var(--dim-gray);
+}
+.post-form__button:enabled:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skewX(var(--skewX, -16deg));
+  background-color: var(--bg, var(--marigold));
+  z-index: -1;
+}
+
+/* .skewBg {
+  position: relative;
+  z-index: 1;
+}
+
+.skewBg::before {
+  content: "";
+  position: absolute;
+  transform: skewX(var(--skewX, -16deg));
+  background-color: var(--bg, var(--marigold));
+  z-index: -1;
+} */
+
+/* .navbar-link:hover {
+  position: relative;
+  z-index: 1;
+}
+.navbar-link:is(:hover, :focus) {
+  background-color: var(--raisin-black-2);
+}
+
+.navbar-link:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skewX(var(--skewX, -16deg));
+  background-color: var(--bg, var(--marigold));
+  z-index: -1;
+} */
+
+/*-----------------------------------*\
+  #POST FORM - end
+\*-----------------------------------*/
+/*-----------------------------------*\
+  #POST CARD - start
+\*-----------------------------------*/
+
+.post-card {
+  background-color: rgb(201, 66, 66);
+  margin: 1rem 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+/*-----------------------------------*\
+  #POST CARD - end
+\*-----------------------------------*/
+
+/*-----------------------------------*\
   #PROFILE page - start
 \*-----------------------------------*/
 
@@ -658,6 +835,8 @@ hr.hr-style {
 .profile-picture img {
   height: 100%;
   aspect-ratio: 1/ 1;
+  background-color: var(--marigold);
+  border-radius: 9999px;
 }
 
 .profile-content {
@@ -836,7 +1015,6 @@ hr.hr-style {
   .user-activities__counts__item {
     padding: 0.5rem 2.5rem;
   }
-  
 }
 /* display: grid;
 grid-template-rows: 15rem 6rem 6rem 1fr;
