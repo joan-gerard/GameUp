@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { FaPencilAlt, FaUserFriends } from "react-icons/fa";
 import {
   IoGameControllerOutline,
@@ -30,16 +30,11 @@ const UserProfile = () => {
     if (showView === "wishlist") return <UserWishlist />;
   };
 
-  const [showUserGames, setShowUserGames] = useState<boolean>(true);
-  const [showUserFriends, setShowUserFriends] = useState<boolean>(false);
-  const [showUserWishlist, setShowUserWishlist] = useState<boolean>(false);
-  const [showUserPosts, setShowUserPosts] = useState<boolean>(false);
-
   return (
     <div className="profile-page">
       <div className="profile-card">
         <div className="profile-picture">
-          <img
+          <img alt="profile"
             src={
               !user?.profileImageUrl
                 ? avatar
@@ -58,7 +53,7 @@ const UserProfile = () => {
           {showMyPosts && <h2 className="collapsible">These are my posts</h2>} */}
         </div>
         <div className="profile-banner">
-          <img src={banner} />
+          <img src={banner} alt="banner" />
         </div>
         <div className="profile-content">
           <div className="user-info">

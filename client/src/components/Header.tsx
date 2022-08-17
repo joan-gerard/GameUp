@@ -4,7 +4,7 @@ import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 
 import "../global.css";
 import { useAuthContext } from "../context/auth";
-import { capitalizeFirstLetter, UrlExists } from "../utils/helpers";
+// import { capitalizeFirstLetter, UrlExists } from "../utils/helpers";
 
 export default function Header() {
   const { user, logout } = useAuthContext();
@@ -12,7 +12,7 @@ export default function Header() {
   const [loginFormIsActive, setLoginFormIsActive] = useState(false);
 
   const navigate = useNavigate();
-  const navgiateToUserProfile = () => {};
+  // const navgiateToUserProfile = () => {};
 
   const handleToggler = () => {
     setTogglerIsActive(!togglerIsActive);
