@@ -1,7 +1,7 @@
 # GameUp
 A social media platform to help gamers find coop partners and give/receive tips
 
-## The app
+## The app.
 
 MVP:
 - users are able to sign in and sign up
@@ -14,7 +14,7 @@ Added Features:
 - users are able to delete their account
 
 
-## The Stack
+## The Stack.
 
 * Frontend
     * React, Apollo Client
