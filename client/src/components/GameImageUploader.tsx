@@ -1,9 +1,7 @@
 import { FormEvent, useState } from "react";
-import styles from "./profileImageUploader.module.scss";
+import styles from "../components/userProfile/profileImageUploader.module.scss";
 
-const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
-  setProfileImageUrl,
-}) => {
+const GameImageUploader = () => {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [uploadData, setUploadData] = useState(null);
 
@@ -49,7 +47,7 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
         formData.append("file", file);
       }
 
-      formData.append("upload_preset", "my-uploads");
+      formData.append("upload_preset", "my-games");
     }
 
     const data = await fetch(
@@ -59,7 +57,6 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
         body: formData,
       }
     ).then((r) => r.json());
-    setProfileImageUrl(data.secure_url);
 
     setImageSrc(data.secure_url);
     setUploadData(data);
@@ -68,7 +65,7 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
   return (
     <div className="">
       <main className="">
-        <h1 className="">Image Uploader</h1>
+        <h1 className="">Game Image Uploader</h1>
 
         <form
           className=""
@@ -103,4 +100,4 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
   );
 };
 
-export default ProfileImageUploader;
+export default GameImageUploader;

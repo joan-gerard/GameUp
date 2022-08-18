@@ -17,6 +17,7 @@ import GameDashboard from "../admin/GameDashboard";
 import UserProfile from "../pages/UserProfile";
 import AccountSettings from "../pages/AccountSettings";
 import Footer from "../components/Footer";
+import GameImageUploader from "../components/GameImageUploader";
 
 function Redirect({ to }: RedirectProps) {
   let navigate = useNavigate();
@@ -57,6 +58,10 @@ const AuthRoute = () => {
           <Route
             path="/user/:username/settings"
             element={user ? <AccountSettings /> : <Redirect to="/login" />}
+          />
+          <Route
+            path="/uploader"
+            element={user ? <GameImageUploader /> : <Redirect to="/login" />}
           />
           {user?.email === "admin@mail.com" && (
             <Route path="/gameDB" element={<GameDashboard />} />

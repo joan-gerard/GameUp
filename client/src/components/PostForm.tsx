@@ -37,7 +37,6 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
         values.body = "";
       }
       setPostFormIsShowing(false);
-
     },
 
     onError(err) {
@@ -47,7 +46,7 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
   function createPostCb() {
     createPost();
   }
-  console.log('PostForm')
+  console.log("PostForm");
 
   if (loading) return <p>Posting...</p>;
 
@@ -62,6 +61,8 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
               <img src={close_icon} />
             </div>
           </div>
+          <hr className="hr-style" />
+
           <div className="post-form__input">
             <input
               id="outlined-basic"
@@ -82,7 +83,11 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
               onChange={onChange}
             />
             <div className="post-form__button-wrapper">
-              <button type="submit" className="post-form__button" disabled={!values.body}>
+              <button
+                type="submit"
+                className="post-form__button"
+                disabled={!values.body}
+              >
                 Post
               </button>
             </div>

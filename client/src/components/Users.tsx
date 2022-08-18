@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuthContext } from "../context/auth";
 import { GET_POSTS } from "../graphql/queries";
 import avatar from "./assets/avatar.png";
@@ -33,9 +33,12 @@ const Users = () => {
     }
 
     return array;
-  }
+  };
+  useEffect(() => {
+    shuffle(otherUsers);
+  }, [user?.username]);
 
-  shuffle(otherUsers)
+  console.log("Users comp - it is shuffled");
 
   const firstFourUsers = otherUsers.slice(0, 4);
 
@@ -43,12 +46,12 @@ const Users = () => {
     <>
       {!loading && !error && (
         <div className="user-list">
-          <h2>Who to follow...</h2>
+          <h2 className="h2 m-l-12">WHO TO FOLLOW</h2>
           {firstFourUsers.map((user: any, i) => (
             <div key={i} className="user-list__row">
               <div className="user-list__info">
                 <img className="" src={avatar} alt="avatar" />
-                <p >{user}</p>
+                <p>{user}</p>
               </div>
               <button className="follow-button">Follow</button>
             </div>

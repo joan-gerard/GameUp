@@ -52,6 +52,7 @@ const Home = () => {
           {postFormIsShowing && (
             <PostForm setPostFormIsShowing={setPostFormIsShowing} />
           )}
+          <h2 className="h2 m-l-12">LATEST POSTS</h2>
           <TransitionGroup>
             {data.getPosts.map((post: any, id: number) => (
               <Collapse key={post.id}>

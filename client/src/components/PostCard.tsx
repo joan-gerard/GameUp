@@ -17,47 +17,35 @@ const white = "#FFFFFF";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const { user } = useAuthContext();
-
-  const profileAvatar =
-    post.username === "jose"
-      ? male3
-      : post.username === "john"
-      ? male6
-      : post.username === "molly"
-      ? female1
-      : post.username === "jane"
-      ? female5
-      : avatar;
-
+  console.log("postcard");
   return (
     <div className="post-card">
-      <div className="">
-        <div className="">
+      <div className="post-card__header">
+        <div className="post-card__user">
           {user && (
             <img
               className="avatar"
-              src={profileAvatar}
+              src={avatar}
               // src={!user.profileImageUrl ? avatar : user.profileImageUrl}
               alt="avatar"
             />
           )}
-          <div className="">
-            <p className="">{post.username}</p>
-            <p className="moment-date">
-              {moment(post.createdAt).fromNow(false)}
-            </p>
-          </div>
+          <p className="post__username">@{post.username}</p>
         </div>
-        <p className="post__game-title">{post.game}</p>
+        <p className="post__date">{moment(post.createdAt).fromNow(false)}</p>
       </div>
-      <div className="post-body">
+      <div className="post-card__game">
+        <img src="https://res.cloudinary.com/dpo5hvd8r/image/upload/v1660819667/my-games/tsztfoiu49xcqlqu6xyq.jpg" />
+        <div className="game-info">
+          <p className="game-title">{post.game}</p>
+          <p className="game-platform">PS5</p>
+        </div>
+      </div>
+      <div className="post-card__body">
         <p>{post.body}</p>
       </div>
-
-      <hr className="hr-thin" />
-
-      <div className="post_action-container">
-        <div className="post_action-buttons">
+      <div className="post-card__actions">
+        <div className="post-card__buttons">
           <LikeButton post={post} />
           <CommentButton post={post} />
         </div>
