@@ -23,12 +23,10 @@ const Login = () => {
 
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(_, result) {
-
       context.login(result.data.login);
       navigate("/");
     },
     onError(err) {
-      alert(err)
       setErrors(err.graphQLErrors[0].extensions.errors);
     },
     variables: values,

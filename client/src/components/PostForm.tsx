@@ -45,14 +45,14 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
   if (loading) return <p>Posting...</p>;
 
   return (
-    <div className="post-component">
+    <div className="post-form__container">
       {/* {user && ( */}
       <div className="post-form">
         <form onSubmit={onSubmit}>
           <div className="post-form__header">
             <h2 className="h2">Write a post</h2>
             <div onClick={() => setPostFormIsShowing(false)}>
-              <img src={close_icon} alt="close icon" />
+              <img className="close-icon" src={close_icon} alt="close icon" />
             </div>
           </div>
           <hr className="hr-style" />

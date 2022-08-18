@@ -28,7 +28,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({ post }) => {
   return (
     <div className="like-actions">
       <p className="">{post.likes.length}</p>
-      <div onClick={handleLikePost} className={liked ? "button-liked" : ""}>
+      <div
+        onClick={handleLikePost}
+        className={liked ? "button-liked" : "button-not-liked"}
+      >
         {liked ? <FaHeart /> : <FaRegHeart />}
       </div>
     </div>

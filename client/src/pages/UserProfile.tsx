@@ -94,28 +94,44 @@ const UserProfile = () => {
           <div className="activities">
             <div className="user-activities__counts">
               <div
-                className="user-activities__counts__item"
+                className={
+                  showView === "games"
+                    ? "user-activities__counts__item item-focus"
+                    : "user-activities__counts__item"
+                }
                 onClick={() => setShowView("games")}
               >
                 <IoGameControllerOutline />
                 <p>0</p>
               </div>
               <div
-                className="user-activities__counts__item"
+                className={
+                  showView === "wishlist"
+                    ? "user-activities__counts__item item-focus"
+                    : "user-activities__counts__item"
+                }
                 onClick={() => setShowView("wishlist")}
               >
                 <IoStarOutline />
                 <p>0</p>
               </div>
               <div
-                className="user-activities__counts__item"
+                className={
+                  showView === "posts"
+                    ? "user-activities__counts__item item-focus"
+                    : "user-activities__counts__item"
+                }
                 onClick={() => setShowView("posts")}
               >
                 <FaPencilAlt />
                 <p>0</p>
               </div>
               <div
-                className="user-activities__counts__item"
+                className={
+                  showView === "friends"
+                    ? "user-activities__counts__item item-focus"
+                    : "user-activities__counts__item"
+                }
                 onClick={() => setShowView("friends")}
               >
                 <FaUserFriends />

@@ -30,6 +30,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ id }) => {
             type="text"
             name="comment"
             className="input-field br-10"
+            placeholder="Write a comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />

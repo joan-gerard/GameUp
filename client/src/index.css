@@ -649,6 +649,7 @@ hr.hr-style {
   padding: 1rem;
   margin: 2rem 1rem;
   border-radius: 10px;
+  color: var(--white);
 }
 
 .start-post img {
@@ -665,6 +666,7 @@ hr.hr-style {
 .fake-input {
   width: 100%;
   border-radius: 9999px;
+  border: 1px solid var(--marigold);
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
@@ -683,7 +685,7 @@ hr.hr-style {
   #POST FORM - start
 \*-----------------------------------*/
 
-.post-component {
+.post-form__container {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -702,6 +704,7 @@ hr.hr-style {
   background-color: var(--jet);
   padding: 2rem;
   border-radius: 10px;
+  background-color: var(--raisin-black-3);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
@@ -711,6 +714,13 @@ hr.hr-style {
   align-items: center;
   margin-bottom: 1rem;
 }
+.close-icon {
+  transition: transform 0.25s ease;
+}
+.close-icon:hover {
+  transform: scale(1.25);
+}
+
 .post-form__header h2 {
   font-size: var(--fs-3);
 }
@@ -801,7 +811,8 @@ hr.hr-style {
 \*-----------------------------------*/
 
 .post-card {
-  background-color: rgb(201, 66, 66);
+  background-color: var(--raisin-black-2);
+  color: white;
   margin: 1rem 1rem;
   border-radius: 10px;
   padding: 1rem;
@@ -886,6 +897,11 @@ hr.hr-style {
   display: flex;
   align-items: center;
 }
+.button-liked,
+.button-not-liked,
+.comment-button {
+  color: var(--marigold);
+}
 
 /*-----------------------------------*\
   #POST CARD - end
@@ -905,7 +921,7 @@ hr.hr-style {
 }
 
 .comment-form {
-  background-color: red;
+  background-color: var(--marigold);
   border-radius: 10px;
   padding: 1rem;
   display: flex;
@@ -923,7 +939,8 @@ hr.hr-style {
   border-radius: 10px;
   margin-bottom: var(--fs-12);
 
-  background-color: red;
+  background-color: var(--raisin-black-2);
+  color: white;
 }
 .comment-card__header {
   grid-column: 1 / 7;
@@ -957,7 +974,8 @@ hr.hr-style {
   margin: var(--fs-12);
   padding: var(--fs-12);
   border-radius: 10px;
-  background-color: red;
+  background-color: var(--raisin-black-2);
+  color: white;
 }
 
 /*-----------------------------------*\
@@ -976,8 +994,9 @@ hr.hr-style {
 }
 
 .user-list__row {
+  background-color: var(--raisin-black-2);
+  color: white;
   height: 5rem;
-  background-color: thistle;
   padding: var(--fs-12);
   border-radius: 10px;
   margin: var(--fs-12) 0;
@@ -996,6 +1015,11 @@ hr.hr-style {
 }
 .user-list__info img {
   height: 100%;
+  margin-right: var(--fs-12);
+}
+
+.follow-button {
+  color: var(--marigold);
 }
 /*-----------------------------------*\
   #USERS - end
@@ -1107,6 +1131,23 @@ hr.hr-style {
   border-radius: 10px;
   padding: 0.5rem 1.5rem;
 }
+
+.user-activities__counts__item:hover {
+  background-color: var(--marigold);
+  color: black;
+}
+.user-activities__counts__item:hover p {
+  color: black;
+}
+
+.item-focus {
+  background-color: var(--marigold);
+  color: black;
+}
+.user-activities__counts__item.item-focus p {
+  color: black;
+}
+
 .user-activities__counts__item p {
   color: var(--roman-silver);
   margin-left: 1rem;
@@ -1257,6 +1298,7 @@ hr.hr-style {
   }
   .navbar-link:is(:hover, :focus) {
     background-color: var(--raisin-black-2);
+    transform: translateX(1rem);
   }
 
   .navbar-link:hover::before {
@@ -1289,13 +1331,12 @@ hr.hr-style {
   .navbar,
   .navbar.active {
     all: unset;
-    /* margin-inline: auto 15px; */
+    padding-right: 1rem;
   }
 
   .navbar-list {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around */
   }
 
   .login-form-container,
@@ -1328,7 +1369,6 @@ hr.hr-style {
 
   .user-list__row {
     height: 4rem;
-    background-color: thistle;
     padding: 0.8rem;
     border-radius: 10px;
     margin: var(--fs-12) 0;
@@ -1340,7 +1380,10 @@ hr.hr-style {
     margin: auto;
   }
 
-
+  .post-form {
+    grid-row: 2 / 5;
+    grid-column: 3 / 7;
+  }
 }
 
 @media (min-width: 900px) {
@@ -1349,8 +1392,9 @@ hr.hr-style {
     grid-template-rows: 1fr;
     grid-template-columns: 35% 65%;
   }
+
+  .post-form {
+    grid-row: 2 / 5;
+    grid-column: 3 / 7;
+  }
 }
-/* display: grid;
-grid-template-rows: 15rem 6rem 6rem 1fr;
-grid-template-columns: 1fr;
-background-color: red !important; */

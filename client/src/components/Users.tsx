@@ -50,7 +50,7 @@ const Users = () => {
             <div key={i} className="user-list__row">
               <div className="user-list__info">
                 <img className="" src={avatar} alt="avatar" />
-                <p>{user}</p>
+                <p>@{user}</p>
               </div>
               <button className="follow-button">Follow</button>
             </div>
