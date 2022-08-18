@@ -887,6 +887,38 @@ hr.hr-style {
 /*-----------------------------------*\
   #POST CARD - end
 \*-----------------------------------*/
+/*-----------------------------------*\
+  #USERS - start
+\*-----------------------------------*/
+.user-list {
+  padding: var(--fs-12);
+}
+
+.user-list__row {
+  height: 5rem;
+  background-color: thistle;
+  padding: var(--fs-12);
+  border-radius: 10px;
+  margin: var(--fs-12) 0;
+}
+.user-list__row,
+.user-list__info {
+  display: flex;
+}
+
+.user-list__row {
+  justify-content: space-between;
+}
+
+.user-list__info {
+  align-items: center;
+}
+.user-list__info img {
+  height: 100%;
+}
+/*-----------------------------------*\
+  #USERS - end
+\*-----------------------------------*/
 
 /*-----------------------------------*\
   #PROFILE page - start

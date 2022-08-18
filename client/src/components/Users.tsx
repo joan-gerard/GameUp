@@ -34,9 +34,9 @@ const Users = () => {
 
     return array;
   };
-  useEffect(() => {
-    shuffle(otherUsers);
-  }, [user?.username]);
+  // useEffect(() => {
+  //   shuffle(otherUsers);
+  // }, [user?.username]);
 
   console.log("Users comp - it is shuffled");
 
@@ -46,7 +46,7 @@ const Users = () => {
     <>
       {!loading && !error && (
         <div className="user-list">
-          <h2 className="h2 m-l-12">WHO TO FOLLOW</h2>
+          <h2 className="h2">WHO TO FOLLOW</h2>
           {firstFourUsers.map((user: any, i) => (
             <div key={i} className="user-list__row">
               <div className="user-list__info">
