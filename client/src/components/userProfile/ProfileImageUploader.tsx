@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import styles from "./profileImageUploader.module.scss";
+// import styles from "./profileImageUploader.module.scss";
 
 const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
   setProfileImageUrl,
@@ -66,39 +66,45 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
   }
 
   return (
-    <div className="">
-      <main className="">
-        <h1 className="">Image Uploader</h1>
+    <div className="image-uploader__wrapper">
+      <h3 className="h3">Upload a new avatar</h3>
 
-        <form
-          className=""
-          method="post"
-          onChange={(e) => handleOnChange(e)}
-          onSubmit={handleOnSubmit}
-        >
-          <p>
-            <input type="file" name="file" />
-          </p>
-          <div className={styles.uploadedImageContainer}>
-            <img
-              className={imageSrc ? styles.uploadedImage : ""}
-              src={imageSrc || ""}
-            />
+      <form
+        className="image-uploader__form"
+        method="post"
+        onChange={(e) => handleOnChange(e)}
+        onSubmit={handleOnSubmit}
+      >
+        {/* <p> */}
+        <input
+          type="file"
+          id="file"
+          name="file"
+          className="choose-file__input"
+          aria-label="File uploader"
+        />
+        {/* </p> */}
+        <div className="uploaded-image__wrapper">
+          <img
+            className=""
+            // className={imageSrc ? styles.uploadedImage : ""}
+            src={imageSrc || ""}
+          />
+        </div>
+
+        {imageSrc && !uploadData && (
+          <div className="upload-image__button__wrapper">
+
+            <button className="upload-image__button"><span>Upload Image</span></button>
           </div>
-
-          {imageSrc && !uploadData && (
-            <p>
-              <button>Upload Files</button>
-            </p>
-          )}
-
-          {uploadData && (
-            <code>
-              <pre>{JSON.stringify(uploadData, null, 2)}</pre>
-            </code>
-          )}
-        </form>
-      </main>
+        )}
+        {uploadData && (
+          <h3 className="h3">Successfully uploaded!</h3>
+          // <code>
+          //   <pre>{JSON.stringify(uploadData, null, 2)}</pre>
+          // </code>
+        )}
+      </form>
     </div>
   );
 };
