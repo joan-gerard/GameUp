@@ -9,17 +9,17 @@ export default function CustomizedInputBase() {
   return (
     <Paper
       component="form"
-      sx={{ display: "flex", alignItems: "center", height: 50, marginLeft: '15px' }}
+      // sx={{ display: "flex", alignItems: "center", height: 50, marginLeft: '15px' }}
     >
-      <IconButton sx={{ p: "10px" }} aria-label="menu">
+      <IconButton aria-label="menu">
         <MenuIcon />
       </IconButton>
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
+        // sx={{ ml: 1, flex: 1 }}
         placeholder="Search..."
         inputProps={{ "aria-label": "search" }}
       />
-      <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+      <IconButton type="submit" aria-label="search">
         <SearchIcon />
       </IconButton>
       {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />

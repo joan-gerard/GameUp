@@ -13,7 +13,8 @@ export default function GameListSelect() {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box>
+    {/* <Box sx={{ minWidth: 120 }}> */}
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select

@@ -6,7 +6,6 @@ import { DELETE_COMMENT } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import avatar from "./assets/avatar.png";
 
-
 const CommentCard: React.FC<CommentCardProps> = ({ comment, id }) => {
   const { user } = useAuthContext();
 
@@ -22,42 +21,35 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, id }) => {
   };
 
   return (
-    <>
-      {/* <Card
-        sx={{
-          backgroundColor: light,
-          margin: "0 15px",
-          marginBottom: "10px",
-          padding: 2,
-          borderRadius: "16px",
-          color: white,
-        }}
-      > */}
-      <>
-        <div className="comment-container">
-          <div className="post__user-info">
-            <div className="align-items">
-              <img className="avatar" src={avatar} alt="avatar" />
-              <div className="post__username">
-                <p className="">{comment.username}</p>
-                <p className="moment-date">
-                  {moment(comment.createdAt).fromNow(false)}
-                </p>
-              </div>
-            </div>
-            {user && user.username === comment.username && (
-              <button className="delete-comment__button" onClick={handleDeletePost}>
-                <FaTrash />
-              </button>
-            )}
-          </div>
-          {/* <p className="post__game-title">{comment.game}</p> */}
+    <div className="comment-card">
+      <div className="comment-card__header">
+        <div className="comment-card__user">
+          <img className="avatar" src={avatar} alt="avatar" />
+          <p className="">{comment.username}</p>
         </div>
-        <div className="post-body">
-          <p>{comment.body}</p>
-        </div>
-        <hr className="hr-thin" />
-        {/* <hr className="hr-thin" />
+        <p className="moment-date">
+          {moment(comment.createdAt).fromNow(false)}
+        </p>
+        {/* <p className="post__game-title">{comment.game}</p> */}
+      </div>
+      <div className="comment-card__body">
+        <p>{comment.body}</p>
+      </div>
+      {user && user.username === comment.username && (
+        <button className="delete-comment__button" onClick={handleDeletePost}>
+          <FaTrash />
+        </button>
+      )}
+
+      {/* <hr className="hr-thin" /> */}
+    </div>
+  );
+};
+
+export default CommentCard;
+
+{
+  /* <hr className="hr-thin" />
 
       <div className="post_action-container">
         <div className="post_action-buttons">
@@ -65,11 +57,15 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, id }) => {
           <CommentButton post={post} />
         </div>
         <DeletePostButton post={post} />
-      </div> */}
-      </>
-      {/* </Card> */}
+      </div> */
+}
 
-      {/* <div className="post-comment__container">
+{
+  /* </Card> */
+}
+
+{
+  /* <div className="post-comment__container">
         <div className="post-comment__header">
           <div className="post-comment__user">
             <img src={avatar} className="comment-avatar" alt="avatar" />
@@ -87,9 +83,5 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, id }) => {
           )}
         </div>
         <p className="post-comment__body">{comment.body}</p>
-      </div> */}
-    </>
-  );
-};
-
-export default CommentCard;
+      </div> */
+}

@@ -33,9 +33,11 @@ const Users = () => {
     }
 
     return array;
-  }
+  };
+  // useEffect(() => {
+  //   shuffle(otherUsers);
+  // }, [user?.username]);
 
-  shuffle(otherUsers)
 
   const firstFourUsers = otherUsers.slice(0, 4);
 
@@ -43,12 +45,12 @@ const Users = () => {
     <>
       {!loading && !error && (
         <div className="user-list">
-          <h2>Who to follow...</h2>
+          <h2 className="h2">WHO TO FOLLOW</h2>
           {firstFourUsers.map((user: any, i) => (
             <div key={i} className="user-list__row">
               <div className="user-list__info">
                 <img className="" src={avatar} alt="avatar" />
-                <p >{user}</p>
+                <p>{user}</p>
               </div>
               <button className="follow-button">Follow</button>
             </div>

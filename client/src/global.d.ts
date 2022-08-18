@@ -75,4 +75,8 @@ type ProfileImageUploaderProps = {
   setProfileImageUrl: (imageUrl: string) => void;
 };
 
+type PostFormProps = {
+  setPostFormIsShowing: (a: boolean) => void;
+};
+
 // @ts-ignore

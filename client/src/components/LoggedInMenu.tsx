@@ -6,13 +6,13 @@ const LoggedInMenu = () => {
   const { user, logout } = useAuthContext();
 
   return (
-    <div className="logged-in__menu">
+    <li className="navbar-item">
       {user && (
         <>
           <Button
-            sx={{
-              marginLeft: 2,
-            }}
+            // sx={{
+            //   marginLeft: 2,
+            // }}
             variant="outlined"
             onClick={logout}
           >
@@ -20,7 +20,7 @@ const LoggedInMenu = () => {
           </Button>
         </>
       )}
-    </div>
+    </li>
   );
 };
 

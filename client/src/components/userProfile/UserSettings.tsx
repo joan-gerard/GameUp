@@ -29,11 +29,7 @@ const UserSettings = () => {
     }
   }, [loading, data]);
 
-  return (
-    <div>
-      <ProfileImageUploader setProfileImageUrl={setProfileImageUrl} />
-    </div>
-  );
+  return <ProfileImageUploader setProfileImageUrl={setProfileImageUrl} />;
 };
 
 export default UserSettings;
