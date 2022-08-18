@@ -19,7 +19,7 @@ const AccountSettings = () => {
     if (!!profileImageUrl) {
       updateUserProfileImage();
     }
-  }, [profileImageUrl]);
+  }, [profileImageUrl, updateUserProfileImage]);
 
   useEffect(() => {
     if (!loading && !!data) {

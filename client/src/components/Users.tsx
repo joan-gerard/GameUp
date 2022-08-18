@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useAuthContext } from "../context/auth";
 import { GET_POSTS } from "../graphql/queries";
 import avatar from "./assets/avatar.png";
@@ -38,7 +38,6 @@ const Users = () => {
   //   shuffle(otherUsers);
   // }, [user?.username]);
 
-  console.log("Users comp - it is shuffled");
 
   const firstFourUsers = otherUsers.slice(0, 4);
 

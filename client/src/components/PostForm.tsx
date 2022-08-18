@@ -1,10 +1,6 @@
 import { useMutation } from "@apollo/client";
-import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { FaRegWindowClose } from "react-icons/fa";
-import { IoCloseCircleOutline } from "react-icons/io5";
 
-import { useAuthContext } from "../context/auth";
 import { CREATE_POST } from "../graphql/mutations";
 import { GET_POSTS } from "../graphql/queries";
 import { usePostForm } from "../utils/hooks";
@@ -12,7 +8,6 @@ import close_icon from "../components/assets/icons8-close.svg";
 // import GameListSelect from "./GameListSelect";
 
 const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
-  const { user } = useAuthContext();
   const [errors, setErrors] = useState<string | null>(null);
 
   const { values, onChange, onSubmit } = usePostForm(createPostCb, setErrors, {
@@ -46,7 +41,6 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
   function createPostCb() {
     createPost();
   }
-  console.log("PostForm");
 
   if (loading) return <p>Posting...</p>;
 
@@ -58,7 +52,7 @@ const PostForm: React.FC<PostFormProps> = ({ setPostFormIsShowing }) => {
           <div className="post-form__header">
             <h2 className="h2">Write a post</h2>
             <div onClick={() => setPostFormIsShowing(false)}>
-              <img src={close_icon} />
+              <img src={close_icon} alt="close icon" />
             </div>
           </div>
           <hr className="hr-style" />

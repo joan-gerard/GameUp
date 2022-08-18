@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Collapse from "@mui/material/Collapse";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { TransitionGroup } from "react-transition-group";
 import { useQuery } from "@apollo/client";
 
 import { GET_POSTS } from "../graphql/queries";
@@ -26,7 +26,6 @@ const Home = () => {
   if (error) return <p>Something Went Wrong</p>;
 
   // const latestPosts = data.getPosts.slice(0, 5);
-  console.log("Home");
 
   return (
     <>

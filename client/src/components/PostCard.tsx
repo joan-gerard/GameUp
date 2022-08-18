@@ -2,22 +2,13 @@ import React from "react";
 import moment from "moment";
 
 import CommentButton from "./CommentButton";
-import female1 from "./assets/female1.png";
-import female5 from "./assets/female5.png";
-import male3 from "./assets/male3.png";
-import male6 from "./assets/male6.png";
 import avatar from "./assets/avatar.png";
 import DeletePostButton from "./DeletePostButton";
 import LikeButton from "./LikeButton";
-import { Card } from "@mui/material";
 import { useAuthContext } from "../context/auth";
-
-const light = "#322651";
-const white = "#FFFFFF";
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const { user } = useAuthContext();
-  console.log("postcard");
   return (
     <div className="post-card">
       <div className="post-card__header">
@@ -35,7 +26,10 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <p className="post__date">{moment(post.createdAt).fromNow(false)}</p>
       </div>
       <div className="post-card__game">
-        <img src="https://res.cloudinary.com/dpo5hvd8r/image/upload/v1660819667/my-games/tsztfoiu49xcqlqu6xyq.jpg" />
+        <img
+          src="https://res.cloudinary.com/dpo5hvd8r/image/upload/v1660819667/my-games/tsztfoiu49xcqlqu6xyq.jpg"
+          alt="game"
+        />
         <div className="game-info">
           <p className="game-title">{post.game}</p>
           <p className="game-platform">PS5</p>

@@ -19,9 +19,6 @@ type Comment = {
   createdAt: string;
 };
 
-const light = "#322651";
-const white = "#FFFFFF";
-
 const PostPage = () => {
   const { id } = useParams();
   const { user } = useAuthContext();
@@ -55,7 +52,7 @@ const PostPage = () => {
               </p>
             </div>
             <div className="post-card__game">
-              <img src="https://res.cloudinary.com/dpo5hvd8r/image/upload/v1660819667/my-games/tsztfoiu49xcqlqu6xyq.jpg" />
+              <img src="https://res.cloudinary.com/dpo5hvd8r/image/upload/v1660819667/my-games/tsztfoiu49xcqlqu6xyq.jpg" alt="game" />
               <div className="game-info">
                 <p className="game-title">{data.getPost.game}</p>
                 <p className="game-platform">PS5</p>
