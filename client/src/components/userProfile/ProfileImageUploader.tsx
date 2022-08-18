@@ -86,8 +86,6 @@ const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
         {/* </p> */}
         <div className="uploaded-image__wrapper">
           <img
-            className=""
-            alt="avatar"
             // className={imageSrc ? styles.uploadedImage : ""}
             src={imageSrc || ""}
           />
