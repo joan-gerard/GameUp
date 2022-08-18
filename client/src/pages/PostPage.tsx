@@ -10,7 +10,7 @@ import LikeButton from "../components/LikeButton";
 import { GET_POST } from "../graphql/queries";
 import CommentCard from "../components/CommentCard";
 import AddCommentForm from "../components/AddCommentForm";
-import { Card } from "@mui/material";
+import { useAuthContext } from "../context/auth";
 
 type Comment = {
   id: string;
@@ -24,6 +24,7 @@ const white = "#FFFFFF";
 
 const PostPage = () => {
   const { id } = useParams();
+  const { user } = useAuthContext();
 
   const { loading, error, data } = useQuery(GET_POST, {
     variables: { postId: id },
@@ -31,121 +32,64 @@ const PostPage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Something Went Wrong</p>;
-  
+
   return (
-    <div>
+    <div className="post-page">
       {!loading && !error && (
         <>
-          <Card
-            // sx={{
-            //   backgroundColor: light,
-            //   margin: "0 150px",
-            //   marginTop: "15px",
-            //   marginBottom: "10px",
-            //   padding: 2,
-            //   borderRadius: "16px",
-            //   color: white,
-            // }}
-          >
-            <div className="jc-between">
-              <div className="post__user-info">
-                <img className="avatar" src={avatar} alt="avatar" />
-                <div className="post__username">
-                  <p className="">{data.getPost.username}</p>
-                  <p className="moment-date">
-                    {moment(data.getPost.createdAt).fromNow(false)}
-                  </p>
-                </div>
+          <div className="post-card">
+            <div className="post-card__header">
+              <div className="post-card__user">
+                {user && (
+                  <img
+                    className="avatar"
+                    src={avatar}
+                    // src={!user.profileImageUrl ? avatar : user.profileImageUrl}
+                    alt="avatar"
+                  />
+                )}
+                <p className="post__username">@{data.getPost.username}</p>
               </div>
-              <p className="post__game-title">{data.getPost.game}</p>
+              <p className="post__date">
+                {moment(data.getPost.createdAt).fromNow(false)}
+              </p>
             </div>
-            <div className="post-body">
+            <div className="post-card__game">
+              <img src="https://res.cloudinary.com/dpo5hvd8r/image/upload/v1660819667/my-games/tsztfoiu49xcqlqu6xyq.jpg" />
+              <div className="game-info">
+                <p className="game-title">{data.getPost.game}</p>
+                <p className="game-platform">PS5</p>
+              </div>
+            </div>
+            <div className="post-card__body">
               <p>{data.getPost.body}</p>
             </div>
-
-            <hr className="hr-thin" />
-
-            <div className="post_action-container">
-              <div className="post_action-buttons">
+            <div className="post-card__actions">
+              <div className="post-card__buttons">
                 <LikeButton post={data.getPost} />
                 <CommentButton post={data.getPost} />
               </div>
               <DeletePostButton post={data.getPost} />
             </div>
-          </Card>
-          <Card
-            // sx={{
-            //   backgroundColor: white,
-            //   margin: "0 150px",
-            //   marginTop: "15px",
-            //   marginBottom: "10px",
-            //   padding: 2,
-            //   borderRadius: "16px",
-            //   color: white,
-            // }}
-          >
+          </div>
+
+          <div className="comment-form__wrapper">
             <AddCommentForm id={id} />
-          </Card>
+          </div>
 
           {data.getPost.comments.length > 0 ? (
-            <Card
-              // sx={{
-              //   backgroundColor: light,
-              //   margin: "0 150px",
-              //   marginTop: "15px",
-              //   marginBottom: "10px",
-              //   padding: 2,
-              //   borderRadius: "16px",
-              //   color: white,
-              // }}
-            >
+            <div className="comments-container">
               {data.getPost.comments &&
                 data.getPost.comments.map((comment: Comment, i: number) => (
                   <CommentCard key={i} comment={comment} id={id} />
                 ))}
-            </Card>
+            </div>
           ) : (
-            <Card
-              // sx={{
-              //   backgroundColor: light,
-              //   margin: "0 150px",
-              //   marginTop: "15px",
-              //   marginBottom: "10px",
-              //   padding: 2,
-              //   borderRadius: "16px",
-              //   color: white,
-              // }}
-            >
+            <div className="no-comment__message">
               <p>There are no comments yet...</p>
-            </Card>
+            </div>
           )}
         </>
-
-        // <div className="postCard">
-        //   <div className="row jc-between bg-primary p2">
-        //     <div className="column jc-between">
-        //       <p className="m0">{data.getPost.username}</p>
-        //       <p className="m0 moment-date">
-        //         {moment(data.getPost.createdAt).fromNow(false)}
-        //       </p>
-        //     </div>
-
-        //     <img src={avatar} alt="avatar" />
-        //   </div>
-        //   <p>{data.getPost.body}</p>
-        //   <hr />
-
-        //   <div className="action-container jc-between">
-        //     <div className="row align-center ">
-        //       <div className="row align-center">
-        //         <p className="">{data.getPost.likeCount}</p>
-        //         <LikeButton post={data.getPost} />
-        //       </div>
-        //       <CommentButton post={data.getPost} />
-        //     </div>
-        //     <DeletePostButton post={data.getPost} />
-        //   </div>
-        // </div>
       )}
     </div>
   );

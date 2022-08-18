@@ -26,40 +26,43 @@ const Home = () => {
   if (error) return <p>Something Went Wrong</p>;
 
   // const latestPosts = data.getPosts.slice(0, 5);
-  console.log('Home')
-
+  console.log("Home");
 
   return (
     <>
       {!loading && !error && (
         <div className="home-layout">
-          <div className="start-post">
-            <img
-              alt="profile"
-              src={
-                !user?.profileImageUrl
-                  ? avatar
-                  : UrlExists(user.profileImageUrl) !== 404
-                  ? user.profileImageUrl
-                  : avatar
-              }
-            />
+          <div className="post-feed">
+            <div className="start-post">
+              <img
+                alt="profile"
+                src={
+                  !user?.profileImageUrl
+                    ? avatar
+                    : UrlExists(user.profileImageUrl) !== 404
+                    ? user.profileImageUrl
+                    : avatar
+                }
+              />
 
-            <div onClick={handleShowForm} className="fake-input">
-              <p>Start a post</p>
+              <div onClick={handleShowForm} className="fake-input">
+                <p>Start a post</p>
+              </div>
+            </div>
+            {postFormIsShowing && (
+              <PostForm setPostFormIsShowing={setPostFormIsShowing} />
+            )}
+            <div>
+              <h2 className="h2 m-12">LATEST POSTS</h2>
+              <TransitionGroup>
+                {data.getPosts.map((post: any, id: number) => (
+                  <Collapse key={post.id}>
+                    <PostCard key={post.id} post={post} />
+                  </Collapse>
+                ))}
+              </TransitionGroup>
             </div>
           </div>
-          {postFormIsShowing && (
-            <PostForm setPostFormIsShowing={setPostFormIsShowing} />
-          )}
-          <h2 className="h2 m-l-12">LATEST POSTS</h2>
-          <TransitionGroup>
-            {data.getPosts.map((post: any, id: number) => (
-              <Collapse key={post.id}>
-                <PostCard key={post.id} post={post} />
-              </Collapse>
-            ))}
-          </TransitionGroup>
           <Users />
         </div>
       )}
