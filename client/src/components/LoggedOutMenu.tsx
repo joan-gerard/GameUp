@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 
 const LoggedOutMenu = () => {
   return (
-    <div>
-      <Link to="login" className="links">
-        <Button variant="contained">Login</Button>
+    <li className="navbar-item">
+      <Link to="login" className="navbar-link skewBg" data-nav-link>
+        <button>Login</button>
       </Link>
-      <Link to="register" className="links">
-        <Button variant="outlined">Sign up</Button>
+      <Link to="register" className="navbar-link skewBg" data-nav-link>
+        <button>Sign up</button>
       </Link>
-    </div>
+    </li>
   );
 };
 
 export default LoggedOutMenu;
-

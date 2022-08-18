@@ -6,12 +6,17 @@ import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
 import { Button, TextField } from "@mui/material";
+import { FaEye, FaEyeSlash, FaWpforms } from "react-icons/fa";
+import { toggleShowPassword } from "../utils/helpers";
 
 const Register = () => {
   const context = useAuthContext();
 
   const [errors, setErrors] = useState<any>({});
+  const [passwordIsShowing, setPasswordIsShowing] = useState<boolean>(false);
+
   const navigate = useNavigate();
+  const passwordInputType = passwordIsShowing ? "text" : "password";
 
   const { onChange, onSubmit, values } = useUserForm(registerUser, {
     username: "",
@@ -36,6 +41,15 @@ const Register = () => {
     addUser();
   }
 
+  // const toggleShowPassword = () => {
+  //   console.log("clicked");
+  //   if (passwordIsShowing === true) {
+  //     setPasswordIsShowing(false);
+  //   } else {
+  //     setPasswordIsShowing(true);
+  //   }
+  // };
+
   // const handleSubmitRegister = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
   //   registerUser();
@@ -45,84 +59,79 @@ const Register = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="background-img">
-      {!loading && (
-        <div className="login-form">
-          <form onSubmit={onSubmit}>
-            <h2>Sign up to...</h2>
-            <div className="login-form__input">
-              <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
-                id="outlined-basic"
-                label="Username*"
-                variant="outlined"
-                size="small"
-                type="text"
-                name="username"
-                value={values.username}
-                onChange={onChange}
-              />
+    <div className="register-page">
+      <div className="register-form-container">
+        {!loading && (
+          <>
+            <form className="register-form" onSubmit={onSubmit}>
+              <h2 className="h2">Sign up to...</h2>
+              <div className="register-form__inputs-wrapper">
+                <input
+                  placeholder="Username*"
+                  type="text"
+                  name="username"
+                  className="input-field"
+                  value={values.username}
+                  onChange={onChange}
+                />
 
-              <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
-                id="outlined-basic"
-                label="Email*"
-                variant="outlined"
-                size="small"
-                type="text"
-                name="email"
-                value={values.email}
-                onChange={onChange}
-              />
+                <input
+                  placeholder="Email*"
+                  type="text"
+                  name="email"
+                  className="input-field"
+                  value={values.email}
+                  onChange={onChange}
+                />
 
-              <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
-                id="outlined-basic"
-                label="Password*"
-                variant="outlined"
-                size="small"
-                type="password"
-                name="password"
-                value={values.password}
-                onChange={onChange}
-              />
+                <input
+                  placeholder="Password*"
+                  type={passwordInputType}
+                  name="password"
+                  className="input-field"
+                  value={values.password}
+                  onChange={onChange}
+                />
 
-              <TextField
-                sx={{
-                  marginBottom: 2,
-                }}
-                id="outlined-basic"
-                label="Confirm Password*"
-                variant="outlined"
-                size="small"
-                type="password"
-                name="confirmPassword"
-                value={values.confirmPassword}
-                onChange={onChange}
-              />
+                <input
+                  placeholder="Confirm Password*"
+                  type={passwordInputType}
+                  name="confirmPassword"
+                  className="input-field"
+                  value={values.confirmPassword}
+                  onChange={onChange}
+                />
+                <div className="show-password__toggle__wrapper">
+                  <div
+                    onClick={() =>
+                      toggleShowPassword(
+                        passwordIsShowing,
+                        setPasswordIsShowing
+                      )
+                    }
+                  >
+                    {passwordIsShowing ? <FaEyeSlash /> : <FaEye />}
+                  </div>
+                </div>
 
-              <Button variant="contained" color="success" type="submit">
-                Sign up
-              </Button>
-            </div>
-          </form>
-          {Object.keys(errors).length > 0 && (
-            <div>
-              {Object.values(errors).map((value: any, i) => (
-                <p key={i} className="error-msg">
-                  * {value}
-                </p>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+                <button className="register-submit-btn" type="submit">
+                  <span>Sign up</span>
+                  <FaWpforms />
+                </button>
+              </div>
+              {Object.keys(errors).length > 0 && (
+                <div>
+                  {Object.values(errors).map((value: any, i) => (
+                    <p key={i} className="error-msg">
+                      * {value}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </form>
+          </>
+        )}
+      </div>
     </div>
   );
 };

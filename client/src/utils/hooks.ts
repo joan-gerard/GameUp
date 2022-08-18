@@ -13,12 +13,12 @@ export const useUserForm = (cb: any, initialState: any) => {
   };
 
   return {
-      onChange,
-      onSubmit,
-      values
-  }
+    onChange,
+    onSubmit,
+    values,
+  };
 };
-export const usePostForm = (cb: any, setErrorsCb:any, initialState: any) => {
+export const usePostForm = (cb: any, setErrorsCb: any, initialState: any) => {
   const [values, setValues] = useState(initialState);
 
   const onChange = (e: any) => {
@@ -28,13 +28,13 @@ export const usePostForm = (cb: any, setErrorsCb:any, initialState: any) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     cb();
-    setValues(initialState)
-    setErrorsCb("")
+    setValues(initialState);
+    setErrorsCb("");
   };
 
   return {
-      onChange,
-      onSubmit,
-      values
-  }
+    onChange,
+    onSubmit,
+    values,
+  };
 };
