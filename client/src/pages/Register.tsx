@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 import { useUserForm } from "../utils/hooks";
 import { REGISTER_USER } from "../graphql/mutations";
-import { Button, TextField } from "@mui/material";
 import { FaEye, FaEyeSlash, FaWpforms } from "react-icons/fa";
 import { toggleShowPassword } from "../utils/helpers";
 

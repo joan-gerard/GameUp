@@ -1,9 +1,8 @@
 import { useMutation } from "@apollo/client";
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../context/auth";
 import { UPDATE_USER_PROFILE_IMAGE } from "../../graphql/mutations";
 import ProfileImageUploader from "./ProfileImageUploader";
-import styles from "./profileImageUploader.module.scss";
 
 const UserSettings = () => {
   const { user, updateUserDetails } = useAuthContext();
