@@ -16,6 +16,8 @@ Added Features:
 
 ## The Stack.
 
+* Programming Language
+    * JS/TS
 * Frontend
     * React, Apollo Client
 * Server
