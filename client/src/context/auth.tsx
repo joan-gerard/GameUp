@@ -19,8 +19,6 @@ type AuthContextType = UserState & {
   logout: () => void,
   deleteUser: () => void,
   updateUserDetails: (data: any) => void
-  // profileImageUrlContext: string | null,
-  // setProfileImgContext: (ImgUrl: string) => void
 }
 
 const initialState: UserState = { user: null };

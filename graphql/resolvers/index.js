@@ -5,14 +5,6 @@ const platformsResolvers = require("./platforms");
 const gamesResolvers = require("./games");
 
 module.exports = {
-  // Post: {
-  //   likeCount(parent) {
-  //     return parent.likes.length;
-  //   },
-  //   commentCount(parent) {
-  //     return parent.comments.length;
-  //   },
-  // },
   Query: {
     ...postsResolvers.Query,
     ...usersResolvers.Query,
